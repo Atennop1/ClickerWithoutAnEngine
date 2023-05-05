@@ -1,5 +1,6 @@
 ﻿using ClickerWithoutAnEngine.Tools.Exceptions;
 using ClickerWithoutAnEngine.Tools.Paths;
+using Newtonsoft.Json;
 
 namespace ClickerWithoutAnEngine.Tools
 {
@@ -23,12 +24,12 @@ namespace ClickerWithoutAnEngine.Tools
                 throw new HasNotSaveException(nameof(TStoreValue), _pathName);
             
             var saveJson = File.ReadAllText(_pathName);
-            return JsonUtility.FromJson<TStoreValue>(saveJson);
+            return JsonConvert.DeserializeObject<TStoreValue>(saveJson);
         }
 
         public void Save(TStoreValue value)
         {
-            var saveJson = JsonUtility.ToJson(value);
+            var saveJson = JsonConvert.SerializeObject(value);
             File.WriteAllText(_pathName, saveJson);
         }
         
