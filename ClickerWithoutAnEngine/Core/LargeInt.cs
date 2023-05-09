@@ -16,6 +16,33 @@ namespace ClickerWithoutAnEngine.Core
             Denominator = BigInteger.One;
         }
         
+        public LargeInt(string value)
+        {
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+            
+            value = value.Replace(",", "");
+            var pos = value.IndexOf('.');
+            value = value.Replace(".", "");
+
+            LargeInt largeInt;
+            if (pos < 0)
+            {
+                var numerator = BigInteger.Parse(value);
+                largeInt = new LargeInt(numerator).Factor();
+            }
+            else
+            {
+                var numerator = BigInteger.Parse(value);
+                var denominator = BigInteger.Pow(10, value.Length - pos);
+
+                largeInt = new LargeInt(numerator, denominator).Factor();
+            }
+            
+            Numerator = largeInt.Numerator;
+            Denominator = largeInt.Denominator;
+        }
+
         public LargeInt(BigInteger numerator, BigInteger denominator)
         {
             Numerator = numerator;
@@ -183,14 +210,15 @@ namespace ClickerWithoutAnEngine.Core
             return this;
         }
         
-        private void Factor()
+        private LargeInt Factor()
         {
             if (Denominator == 1)
-                return;
+                return this;
             
             var factor = BigInteger.GreatestCommonDivisor(Numerator, Denominator);
             Numerator /= factor;
             Denominator /= factor;
+            return this;
         }
 
         private ILargeInt ShiftDecimalLeft(int shift)
@@ -211,6 +239,8 @@ namespace ClickerWithoutAnEngine.Core
             return this;
         }
 
+        /*OPERATORS BLOCK*/
+        
         private static int Compare(ILargeInt left, ILargeInt right)
         {
             if (Equals(left, null))
@@ -227,8 +257,30 @@ namespace ClickerWithoutAnEngine.Core
 
             return BigInteger.Compare(first, second);
         }
+        
+        public int CompareTo(ILargeInt? other)
+        {
+            if (other == null)
+                throw new ArgumentNullException(nameof(other));
+            
+            return Compare(this, other);
+        }
 
-        /*OPERATORS BLOCK*/
+        public int CompareTo(object? other)
+        {
+            if (other is not LargeInt largeInt)
+                throw new InvalidOperationException();
+            
+            return Compare(this, largeInt);
+        }
+
+        public bool Equals(ILargeInt? other)
+        {
+            if (other == null || GetType() != other.GetType())
+                return false;
+
+            return Numerator == other.Numerator && Denominator == other.Denominator;
+        }
         
         public static ILargeInt operator -(LargeInt value) 
             => new LargeInt(value).Negate();
@@ -342,29 +394,5 @@ namespace ClickerWithoutAnEngine.Core
 
         public static implicit operator LargeInt(BigInteger value) 
             => new(value);
-
-        public int CompareTo(ILargeInt? other)
-        {
-            if (other == null)
-                throw new ArgumentNullException(nameof(other));
-            
-            return Compare(this, other);
-        }
-
-        public int CompareTo(object? other)
-        {
-            if (other is not LargeInt largeInt)
-                throw new InvalidOperationException();
-            
-            return Compare(this, largeInt);
-        }
-
-        public bool Equals(ILargeInt? other)
-        {
-            if (other == null || GetType() != other.GetType())
-                return false;
-
-            return Numerator == other.Numerator && Denominator == other.Denominator;
-        }
     }
 }
