@@ -21,7 +21,7 @@ namespace ClickerWithoutAnEngine.Core
             if (value == null)
                 throw new ArgumentNullException(nameof(value));
             
-            value = value.Replace(",", "");
+            value = value.Trim().Replace(",", "");
             var pos = value.IndexOf('.');
             value = value.Replace(".", "");
 
@@ -35,7 +35,6 @@ namespace ClickerWithoutAnEngine.Core
             {
                 var numerator = BigInteger.Parse(value);
                 var denominator = BigInteger.Pow(10, value.Length - pos);
-
                 largeInt = new LargeInt(numerator, denominator).Factor();
             }
             
@@ -351,6 +350,7 @@ namespace ClickerWithoutAnEngine.Core
         {
             if (int.MinValue > value)
                 throw new OverflowException("Value is less than System.int.MinValue.");
+            
             if (int.MaxValue < value)
                 throw new OverflowException("Value is greater than System.int.MaxValue.");
 
