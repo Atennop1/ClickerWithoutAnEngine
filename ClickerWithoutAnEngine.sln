@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickerWithoutAnEngine", "ClickerWithoutAnEngine\ClickerWithoutAnEngine.csproj", "{FE360638-1A92-474E-8C44-6D1B89B4BE2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickerWithoutAnEngine.Tests", "ClickerWithoutAnEngine.Tests\ClickerWithoutAnEngine.Tests.csproj", "{A3FDF945-54E8-4C24-9738-E3A851A2D956}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{FE360638-1A92-474E-8C44-6D1B89B4BE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE360638-1A92-474E-8C44-6D1B89B4BE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE360638-1A92-474E-8C44-6D1B89B4BE2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3FDF945-54E8-4C24-9738-E3A851A2D956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FDF945-54E8-4C24-9738-E3A851A2D956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3FDF945-54E8-4C24-9738-E3A851A2D956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3FDF945-54E8-4C24-9738-E3A851A2D956}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

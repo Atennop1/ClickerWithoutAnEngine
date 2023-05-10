@@ -28,3 +28,4 @@ C:\Users\User\source\repos\ClickerWithoutAnEngine\ClickerWithoutAnEngine\obj\Deb
 C:\Users\User\source\repos\ClickerWithoutAnEngine\ClickerWithoutAnEngine\obj\Debug\net6.0\ClickerWithoutAnEngine.pdb
 C:\Users\User\source\repos\ClickerWithoutAnEngine\ClickerWithoutAnEngine\obj\Debug\net6.0\ClickerWithoutAnEngine.genruntimeconfig.cache
 C:\Users\User\source\repos\ClickerWithoutAnEngine\ClickerWithoutAnEngine\obj\Debug\net6.0\ref\ClickerWithoutAnEngine.dll
+C:\Users\User\source\repos\ClickerWithoutAnEngine\ClickerWithoutAnEngine\bin\Debug\net6.0\Newtonsoft.Json.dll
