@@ -60,5 +60,15 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
             var result = largeInt.Decrement();
             Assert.That(result.Numerator == 5 && result.Denominator == 5 && result.ToString() == "1");
         }
+
+        [Test]
+        public void IsRemainderCorrect()
+        {
+            var first = new Core.LargeInt(10, 2);
+            var second = new Core.LargeInt(10, 5);
+            
+            Console.WriteLine(first.Remainder(second).ToString());
+            Assert.That(first.Remainder(second).ToString() == "1");
+        }
     }
 }

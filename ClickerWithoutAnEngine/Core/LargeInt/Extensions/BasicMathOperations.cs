@@ -54,7 +54,7 @@ namespace ClickerWithoutAnEngine.Core
             if (Equals(second, null))
                 throw new ArgumentNullException(nameof(second));
 
-            var result = first.Subtract(first.Divide(second).Floor()).Multiply(second);
+            var result = first.Subtract(first.Divide(second).Floor().Multiply(second));
             return new LargeInt(result);
         }
 
