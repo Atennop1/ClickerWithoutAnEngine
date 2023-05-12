@@ -129,7 +129,7 @@ namespace ClickerWithoutAnEngine.Core
             if (other == null || GetType() != other.GetType())
                 return false;
 
-            return Numerator == other.Numerator && Denominator == other.Denominator;
+            return CompareTo(other) == 0;
         }
         
         public override string ToString()

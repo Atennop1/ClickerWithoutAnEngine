@@ -2,9 +2,6 @@
 {
     public static class LogicOperations
     {
-        public static bool Equals(this ILargeInt left, ILargeInt right)
-            => left.CompareTo(right) == 0;
-        
         public static bool Less(this ILargeInt left, ILargeInt right) 
             => left.CompareTo(right) < 0;
 
