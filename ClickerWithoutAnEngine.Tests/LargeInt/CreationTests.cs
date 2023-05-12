@@ -66,9 +66,11 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         [Test]
         public void IsCreationByStringCorrect()
         {
-            var integerString = "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.5";
+            var integerString = "193748376483748374873847384783403099389489374364736847384637.38473784637856486364863468364";
             var largeInt = new Core.LargeInt(integerString);
-            Assert.That(() => largeInt.Numerator == new Core.LargeInt("200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001").Numerator && largeInt.Denominator == 2);
+
+            Assert.That(() => largeInt.Numerator == new Core.LargeInt("4843709412093709371846184619585077484737234359118421184615934618446159464121591215867091").Numerator && 
+                              largeInt.Denominator == new Core.LargeInt("25000000000000000000000000000").Numerator);
         }
     }
 }
