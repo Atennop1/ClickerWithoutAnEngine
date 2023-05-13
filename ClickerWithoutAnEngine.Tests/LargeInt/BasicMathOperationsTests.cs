@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace ClickerWithoutAnEngine.Tests.LargeInt
 {
-    public sealed class BasicMathOperationsTest
+    public sealed class BasicMathOperationsTests
     {
         [Test]
         public void IsAddingCorrect()

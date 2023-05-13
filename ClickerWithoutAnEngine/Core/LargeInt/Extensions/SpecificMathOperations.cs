@@ -5,7 +5,7 @@ namespace ClickerWithoutAnEngine.Core
     public static class SpecificMathOperations
     {
         public static ILargeInt Abs(this ILargeInt value) 
-            => new LargeInt(BigInteger.Abs(value.Numerator), value.Denominator);
+            => new LargeInt(BigInteger.Abs(value.Numerator), BigInteger.Abs(value.Denominator));
 
         public static ILargeInt Negate(this ILargeInt value)
             => new LargeInt(BigInteger.Negate(value.Numerator), value.Denominator);
@@ -17,7 +17,7 @@ namespace ClickerWithoutAnEngine.Core
             => shift < 0 ? value.ShiftDecimalRight(-shift) : new LargeInt(value.Numerator * BigInteger.Pow(10, shift), value.Denominator);
 
         public static ILargeInt ShiftDecimalRight(this ILargeInt value, int shift) 
-            => shift < 0 ? value.ShiftDecimalLeft(-shift) : new LargeInt(value.Numerator * BigInteger.Pow(-10, shift), value.Denominator);
+            => shift < 0 ? value.ShiftDecimalLeft(-shift) : new LargeInt(value.Numerator, value.Denominator * BigInteger.Pow(10, shift));
         
         public static ILargeInt Simplify(this ILargeInt value)
         {

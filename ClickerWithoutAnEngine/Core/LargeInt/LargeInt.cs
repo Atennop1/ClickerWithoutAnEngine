@@ -45,7 +45,7 @@ namespace ClickerWithoutAnEngine.Core
             if (denominator == 0)
                 throw new ArgumentException("Denominator equals 0");
             
-            Denominator = BigInteger.Abs(denominator);
+            Denominator = denominator;
         }
 
         public LargeInt(BigInteger value)
@@ -135,27 +135,21 @@ namespace ClickerWithoutAnEngine.Core
         public override string ToString()
         {
             var precision = 12;
-            this.Simplify();
+            var simplified = this.Simplify();
 
-            var result = BigInteger.DivRem(Numerator, Denominator, out var remainder);
+            var result = BigInteger.DivRem(simplified.Numerator, simplified.Denominator, out var remainder);
 
             if (remainder == 0)
                 return result.ToString();
             
-            var decimals = Numerator * BigInteger.Pow(10, precision) / Denominator;
-
+            var decimals = remainder * BigInteger.Pow(10, precision) / simplified.Denominator;
+            var decimalsSign = decimals.Sign;
+            
             if (decimals == 0)
                 return result.ToString();
 
-            var stringBuilder = new StringBuilder();
-
-            while (precision-- > 0 && decimals > 0)
-            {
-                stringBuilder.Append(decimals%10);
-                decimals /= 10;
-            }
-            
-            return result + "." + new string(stringBuilder.ToString().Reverse().ToArray()).TrimEnd(new[] { '0' });
+            var countOfZeros = precision - BigInteger.Abs(decimals).ToString().Length;
+            return (decimalsSign >= 0 ? "" : "-") + BigInteger.Abs(result) + "." + new string((new string('0', countOfZeros) + BigInteger.Abs(decimals)).ToArray()).TrimEnd(new[] { '0' });
         }
 
         #endregion
