@@ -4,7 +4,7 @@ namespace ClickerWithoutAnEngine.Core
 {
     public static class MathCasts
     {
-        public static int ToInt(this LargeInt value)
+        public static int ToInt(this IIdleNumber value)
         {
             if (value.Less(int.MinValue.ToLargeInt()))
                 throw new OverflowException("Value is less than System.int.MinValue.");
@@ -26,31 +26,31 @@ namespace ClickerWithoutAnEngine.Core
             return (uint)value.Numerator / (uint)value.Denominator;
         }
         
-        public static IIdleNumber ToLargeInt(this byte value) 
+        public static IIdleNumber ToIdleNumber(this byte value) 
             => new LargeInt((uint)value);
 
-        public static IIdleNumber ToLargeInt(this sbyte value) 
+        public static IIdleNumber ToIdleNumber(this sbyte value) 
             => new LargeInt(value);
 
-        public static IIdleNumber ToLargeInt(this short value) 
+        public static IIdleNumber ToIdleNumber(this short value) 
             => new LargeInt(value);
 
-        public static IIdleNumber ToLargeInt(this ushort value) 
+        public static IIdleNumber ToIdleNumber(this ushort value) 
             => new LargeInt((uint)value);
 
-        public static IIdleNumber ToLargeInt(this int value) 
+        public static IIdleNumber ToIdleNumber(this int value) 
             => new LargeInt(value);
 
-        public static IIdleNumber ToLargeInt(this long value) 
+        public static IIdleNumber ToIdleNumber(this long value) 
             => new LargeInt(value);
 
-        public static IIdleNumber ToLargeInt(this uint value) 
+        public static IIdleNumber ToIdleNumber(this uint value) 
             => new LargeInt(value);
 
-        public static IIdleNumber ToLargeInt(this ulong value) 
+        public static IIdleNumber ToIdleNumber(this ulong value) 
             => new LargeInt(value);
 
-        public static IIdleNumber ToLargeInt(this BigInteger value) 
+        public static IIdleNumber ToIdleNumber(this BigInteger value) 
             => new LargeInt(value);
     }
 }

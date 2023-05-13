@@ -55,6 +55,9 @@ namespace ClickerWithoutAnEngine.Core
             return new IdleNumber(result.Number, result.Exponent - second.Exponent);
         }
 
+        
+        
+        
         public static IIdleNumber Remainder(this IIdleNumber first, IIdleNumber second)
         {
             if (Equals(second, null))
@@ -64,6 +67,9 @@ namespace ClickerWithoutAnEngine.Core
             return new LargeInt(result);
         }
 
+        
+        
+        
         public static IIdleNumber Pow(this IIdleNumber largeInt, int exponent)
         {
             if (largeInt.Numerator.IsZero)
