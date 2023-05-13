@@ -15,7 +15,7 @@ namespace ClickerWithoutAnEngine.Core
             return (int)value.Numerator / (int)value.Denominator;
         }
 
-        public static uint ToUnsignedInt(this ILargeInt value)
+        public static uint ToUnsignedInt(this IIdleNumber value)
         {
             if (value.Less(uint.MinValue.ToLargeInt()))
                 throw new OverflowException("Value is less than System.uint.MinValue.");
@@ -26,31 +26,31 @@ namespace ClickerWithoutAnEngine.Core
             return (uint)value.Numerator / (uint)value.Denominator;
         }
         
-        public static ILargeInt ToLargeInt(this byte value) 
+        public static IIdleNumber ToLargeInt(this byte value) 
             => new LargeInt((uint)value);
 
-        public static ILargeInt ToLargeInt(this sbyte value) 
+        public static IIdleNumber ToLargeInt(this sbyte value) 
             => new LargeInt(value);
 
-        public static ILargeInt ToLargeInt(this short value) 
+        public static IIdleNumber ToLargeInt(this short value) 
             => new LargeInt(value);
 
-        public static ILargeInt ToLargeInt(this ushort value) 
+        public static IIdleNumber ToLargeInt(this ushort value) 
             => new LargeInt((uint)value);
 
-        public static ILargeInt ToLargeInt(this int value) 
+        public static IIdleNumber ToLargeInt(this int value) 
             => new LargeInt(value);
 
-        public static ILargeInt ToLargeInt(this long value) 
+        public static IIdleNumber ToLargeInt(this long value) 
             => new LargeInt(value);
 
-        public static ILargeInt ToLargeInt(this uint value) 
+        public static IIdleNumber ToLargeInt(this uint value) 
             => new LargeInt(value);
 
-        public static ILargeInt ToLargeInt(this ulong value) 
+        public static IIdleNumber ToLargeInt(this ulong value) 
             => new LargeInt(value);
 
-        public static ILargeInt ToLargeInt(this BigInteger value) 
+        public static IIdleNumber ToLargeInt(this BigInteger value) 
             => new LargeInt(value);
     }
 }

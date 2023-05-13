@@ -4,22 +4,22 @@ namespace ClickerWithoutAnEngine.Core
 {
     public static class SpecificMathOperations
     {
-        public static ILargeInt Abs(this ILargeInt value) 
+        public static IIdleNumber Abs(this IIdleNumber value) 
             => new LargeInt(BigInteger.Abs(value.Numerator), BigInteger.Abs(value.Denominator));
 
-        public static ILargeInt Negate(this ILargeInt value)
+        public static IIdleNumber Negate(this IIdleNumber value)
             => new LargeInt(BigInteger.Negate(value.Numerator), value.Denominator);
 
-        public static ILargeInt Inverse(this ILargeInt value) 
+        public static IIdleNumber Inverse(this IIdleNumber value) 
             => new LargeInt(value.Denominator, value.Numerator);
 
-        public static ILargeInt ShiftDecimalLeft(this ILargeInt value, int shift) 
+        public static IIdleNumber ShiftDecimalLeft(this IIdleNumber value, int shift) 
             => shift < 0 ? value.ShiftDecimalRight(-shift) : new LargeInt(value.Numerator * BigInteger.Pow(10, shift), value.Denominator);
 
-        public static ILargeInt ShiftDecimalRight(this ILargeInt value, int shift) 
+        public static IIdleNumber ShiftDecimalRight(this IIdleNumber value, int shift) 
             => shift < 0 ? value.ShiftDecimalLeft(-shift) : new LargeInt(value.Numerator, value.Denominator * BigInteger.Pow(10, shift));
         
-        public static ILargeInt Simplify(this ILargeInt value)
+        public static IIdleNumber Simplify(this IIdleNumber value)
         {
             if (value.Denominator == 1)
                 return value;

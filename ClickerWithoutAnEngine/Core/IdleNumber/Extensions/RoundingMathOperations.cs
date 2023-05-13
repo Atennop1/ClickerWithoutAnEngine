@@ -4,7 +4,7 @@ namespace ClickerWithoutAnEngine.Core
 {
     public static class RoundingMathOperations
     {
-        public static ILargeInt Floor(this ILargeInt value)
+        public static IIdleNumber Floor(this IIdleNumber value)
         {
             var numerator = value.Numerator - BigInteger.Remainder(value.Numerator, value.Denominator);
             
@@ -15,7 +15,7 @@ namespace ClickerWithoutAnEngine.Core
             return result.Simplify();
         }
         
-        public static ILargeInt Ceil(this ILargeInt value)
+        public static IIdleNumber Ceil(this IIdleNumber value)
         {
             var numerator = value.Numerator - BigInteger.Remainder(value.Numerator, value.Denominator);
             
@@ -26,7 +26,7 @@ namespace ClickerWithoutAnEngine.Core
             return result.Simplify();
         }
         
-        public static ILargeInt Round(this ILargeInt value) 
+        public static IIdleNumber Round(this IIdleNumber value) 
         {
             var result = new LargeInt(BigInteger.Remainder(value.Numerator, value.Denominator), value.Denominator);
             return result.CompareTo(new LargeInt(new BigInteger(0.5))) >= 0 ? value.Ceil() : value.Floor();
