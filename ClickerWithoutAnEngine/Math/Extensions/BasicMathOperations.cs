@@ -36,25 +36,18 @@ namespace ClickerWithoutAnEngine.Math
         public static IIdleNumber Multiply(this IIdleNumber idleNumber, float number)
             => idleNumber.Multiply(new IdleNumber(number));
         
-        public static IIdleNumber Multiply(this IIdleNumber first, IIdleNumber second)
-        {
-            var result = first.Multiply(second.Number);
-            return new IdleNumber(result.Number, result.Exponent + second.Exponent);
-        }
+        public static IIdleNumber Multiply(this IIdleNumber first, IIdleNumber second) 
+            => new IdleNumber(first.Number * second.Number, first.Exponent + second.Exponent);
 
-        
+
         public static IIdleNumber Divide(this IIdleNumber idleNumber, int number)
-            => idleNumber.Multiply(1f / number);
+            => idleNumber.Divide(new IdleNumber(number));
         
         public static IIdleNumber Divide(this IIdleNumber idleNumber, float number)
-            => idleNumber.Multiply(1f / number);
+            => idleNumber.Divide(new IdleNumber(number));
         
-        public static IIdleNumber Divide(this IIdleNumber first, IIdleNumber second)
-        {
-            var result = first.Divide(second.Number);
-            return new IdleNumber(result.Number, result.Exponent - second.Exponent);
-        }
-
+        public static IIdleNumber Divide(this IIdleNumber first, IIdleNumber second) 
+            => new IdleNumber(first.Number / second.Number, first.Exponent - second.Exponent);
 
 
         public static IIdleNumber Remainder(this IIdleNumber first, int second)

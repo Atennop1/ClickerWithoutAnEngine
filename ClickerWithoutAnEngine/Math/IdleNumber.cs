@@ -7,16 +7,19 @@
 
         public IdleNumber(float number = 0f, int exponent = 0)
         {
-            while (number > 10)
+            if (number != 0)
             {
-                number /= 10f;
-                exponent++;
-            }
-                
-            while (number < 10)
-            {
-                number *= 10f;
-                exponent--;
+                while (System.Math.Abs(number) >= 10)
+                {
+                    number /= 10f;
+                    exponent++;
+                }
+
+                while (System.Math.Abs(number) < 1)
+                {
+                    number *= 10f;
+                    exponent--;
+                }
             }
 
             Exponent = exponent;

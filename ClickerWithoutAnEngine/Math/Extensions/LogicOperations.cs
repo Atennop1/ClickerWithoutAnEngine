@@ -3,10 +3,10 @@
     public static class LogicOperations
     {
         public static bool IsEquals(this IIdleNumber left, int right)
-            => left.Equals(new IdleNumber(right));
+            => left.IsEquals(new IdleNumber(right));
         
         public static bool IsEquals(this IIdleNumber left, float right)
-            => left.Equals(new IdleNumber(right));
+            => left.IsEquals(new IdleNumber(right));
         
         public static bool IsEquals(this IIdleNumber left, IIdleNumber right)
             => left.Exponent == right.Exponent && System.Math.Abs(left.Number - right.Number) < float.Epsilon;

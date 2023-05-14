@@ -6,15 +6,24 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
     public sealed class CreationTests
     {
         [Test]
-        public void IsAverageCreationCorrect()
+        public void IsAverageCreationCorrect1()
         {
-            var first = new IdleNumber(1f, 5);
-            var second = new IdleNumber(100f, 5);
-            var third = new IdleNumber(0.01f, 5);
-            
-            Assert.That(first.Number == 1f && first.Exponent == 5 &&
-                        second.Number == 1f && second.Exponent == 7 &&
-                        third.Number == 1f && third.Exponent == 3);
+            var value = new IdleNumber(1f, 5);
+            Assert.That(value.Number == 1f && value.Exponent == 5);
+        }
+        
+        [Test]
+        public void IsAverageCreationCorrect2()
+        {
+            var value = new IdleNumber(100f, 5);
+            Assert.That(value.Number == 1f && value.Exponent == 7);
+        }
+        
+        [Test]
+        public void IsAverageCreationCorrect3()
+        {
+            var value = new IdleNumber(0.01f, 5);
+            Assert.That(value.Number == 1f && value.Exponent == 3);
         }
 
         [Test]
