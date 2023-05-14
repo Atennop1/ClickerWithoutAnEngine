@@ -1,35 +1,54 @@
-﻿using System.Numerics;
-
-namespace ClickerWithoutAnEngine.Core
+﻿namespace ClickerWithoutAnEngine.Core
 {
     public static class RoundingMathOperations
     {
         public static IIdleNumber Floor(this IIdleNumber value)
         {
-            var numerator = value.Numerator - BigInteger.Remainder(value.Numerator, value.Denominator);
-            
-            if (numerator < 0)
-                numerator += value.Denominator;
+            var decimalPlaces = Math.Max(-value.Exponent, 0);
+            var expandedNumber = value.Number;
 
-            var result = new LargeInt(numerator, value.Denominator);
-            return result.Simplify();
+            for (var i = 0; i < decimalPlaces; i++) 
+                expandedNumber *= 10f;
+
+            var roundedNumber = (int)Math.Floor(expandedNumber);
+
+            for (var i = 0; i < decimalPlaces; i++) 
+                roundedNumber /= 10;
+
+            return new IdleNumber(roundedNumber, value.Exponent);
         }
         
         public static IIdleNumber Ceil(this IIdleNumber value)
         {
-            var numerator = value.Numerator - BigInteger.Remainder(value.Numerator, value.Denominator);
-            
-            if (value.Numerator >= 0)
-                numerator += value.Denominator;
+            var decimalPlaces = Math.Max(-value.Exponent, 0);
+            var expandedNumber = value.Number;
 
-            var result = new LargeInt(numerator, value.Denominator);
-            return result.Simplify();
+            for (var i = 0; i < decimalPlaces; i++) 
+                expandedNumber *= 10f;
+
+            var roundedNumber = (int)Math.Ceiling(expandedNumber);
+
+            for (var i = 0; i < decimalPlaces; i++) 
+                roundedNumber /= 10;
+
+            return new IdleNumber(roundedNumber, value.Exponent);
         }
         
-        public static IIdleNumber Round(this IIdleNumber value) 
+        public static IIdleNumber Round(this IIdleNumber value)
         {
-            var result = new LargeInt(BigInteger.Remainder(value.Numerator, value.Denominator), value.Denominator);
-            return result.CompareTo(new LargeInt(new BigInteger(0.5))) >= 0 ? value.Ceil() : value.Floor();
+            var roundedNumber = value;
+
+            if (value.Exponent >= 0 || value.Number == Math.Floor(value.Number)) 
+                return roundedNumber;
+            
+            var roundedDown = value.Floor();
+            var roundedUp = value.Ceil();
+                
+            var diffDown = value.Number - roundedDown.Number;
+            var diffUp = roundedUp.Number - value.Number;
+
+            roundedNumber = diffDown < diffUp ? roundedDown : roundedUp;
+            return roundedNumber;
         }
     }
 }

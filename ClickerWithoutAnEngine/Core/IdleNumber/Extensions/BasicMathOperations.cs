@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace ClickerWithoutAnEngine.Core
+﻿namespace ClickerWithoutAnEngine.Core
 {
     public static class BasicMathOperations
     {
@@ -31,10 +29,10 @@ namespace ClickerWithoutAnEngine.Core
         
         
         public static IIdleNumber Multiply(this IIdleNumber idleNumber, int number)
-            => new IdleNumber(idleNumber.Number * number, idleNumber.Exponent);
-        
+            => idleNumber.Multiply(new IdleNumber(number));
+
         public static IIdleNumber Multiply(this IIdleNumber idleNumber, float number)
-            => new IdleNumber(idleNumber.Number * number, idleNumber.Exponent);
+            => idleNumber.Multiply(new IdleNumber(number));
         
         public static IIdleNumber Multiply(this IIdleNumber first, IIdleNumber second)
         {
@@ -44,10 +42,10 @@ namespace ClickerWithoutAnEngine.Core
 
         
         public static IIdleNumber Divide(this IIdleNumber idleNumber, int number)
-            => new IdleNumber(idleNumber.Multiply(1f / number));
+            => idleNumber.Multiply(1f / number);
         
         public static IIdleNumber Divide(this IIdleNumber idleNumber, float number)
-            => new IdleNumber(idleNumber.Multiply(1f / number));
+            => idleNumber.Multiply(1f / number);
         
         public static IIdleNumber Divide(this IIdleNumber first, IIdleNumber second)
         {
@@ -55,42 +53,43 @@ namespace ClickerWithoutAnEngine.Core
             return new IdleNumber(result.Number, result.Exponent - second.Exponent);
         }
 
+
+
+        public static IIdleNumber Remainder(this IIdleNumber first, int second)
+            => first.Divide(new IdleNumber(second));
         
-        
-        
+        public static IIdleNumber Remainder(this IIdleNumber first, float second)
+            => first.Divide(new IdleNumber(second));
+
         public static IIdleNumber Remainder(this IIdleNumber first, IIdleNumber second)
         {
-            if (Equals(second, null))
-                throw new ArgumentNullException(nameof(second));
+            if (second.Number == 0f)
+                throw new DivideByZeroException("Attempted to divide by zero.");
 
-            var result = first.Subtract(first.Divide(second).Floor().Multiply(second));
-            return new LargeInt(result);
+            if (first.Number == 0f)
+                return new IdleNumber();
+
+            var exponentDifference = first.Exponent - second.Exponent;
+            var adjustedDivisor = second.Number * 10.Pow(exponentDifference);
+
+            var remainder = first.Number % adjustedDivisor;
+            return new IdleNumber(remainder, first.Exponent);
         }
 
         
         
-        
-        public static IIdleNumber Pow(this IIdleNumber largeInt, int exponent)
+        public static IIdleNumber Pow(this IIdleNumber idleNumber, int power)
         {
-            if (largeInt.Numerator.IsZero)
-                return largeInt;
+            if (power == 0)
+                return new IdleNumber(1f);
 
-            BigInteger numerator;
-            BigInteger denominator;
-            
-            if (exponent < 0)
-            {
-                var savedNumerator = largeInt.Numerator;
-                numerator = BigInteger.Pow(largeInt.Denominator, -exponent);
-                denominator = BigInteger.Pow(savedNumerator, -exponent);
-            }
-            else
-            {
-                numerator = BigInteger.Pow(largeInt.Numerator, exponent);
-                denominator = BigInteger.Pow(largeInt.Denominator, exponent);
-            }
+            if (idleNumber.Number == 0f)
+                return new IdleNumber();
 
-            return new LargeInt(numerator, denominator);
+            var newExponent = idleNumber.Exponent * power;
+            var newNumber = (float)Math.Pow(idleNumber.Number, power);
+
+            return new IdleNumber(newNumber, newExponent);
         }
     }
 }
