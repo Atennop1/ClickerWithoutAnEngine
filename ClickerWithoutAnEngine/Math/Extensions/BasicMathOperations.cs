@@ -59,8 +59,13 @@ namespace ClickerWithoutAnEngine.Math
         public static IIdleNumber Divide(this IIdleNumber idleNumber, float number)
             => idleNumber.Divide(new IdleNumber(number));
         
-        public static IIdleNumber Divide(this IIdleNumber first, IIdleNumber second) 
-            => new IdleNumber(first.Number / second.Number, first.Exponent - second.Exponent);
+        public static IIdleNumber Divide(this IIdleNumber first, IIdleNumber second)
+        {
+            if (second.Number == 0)
+                throw new DivideByZeroException();
+            
+            return new IdleNumber(first.Number / second.Number, first.Exponent - second.Exponent);
+        }
 
 
         public static IIdleNumber Remainder(this IIdleNumber first, int second)

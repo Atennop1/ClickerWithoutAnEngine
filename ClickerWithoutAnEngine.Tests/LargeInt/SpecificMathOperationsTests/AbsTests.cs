@@ -20,5 +20,13 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
             var result = value.Abs();
             Assert.That(result.Number == 1 && result.Exponent == 3);
         }
+        
+        [Test]
+        public void IsAbsCorrect3()
+        {
+            var value = new IdleNumber();
+            var result = value.Abs();
+            Assert.That(result.Number == 0 && result.Exponent == 0);
+        }
     }
 }

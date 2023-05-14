@@ -20,5 +20,13 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
             var result = value.Inverse();
             Assert.That(result.Number == -1 && result.Exponent == -3);
         }
+        
+        [Test]
+        public void IsInverseCorrect3()
+        {
+            var value = new IdleNumber();
+            var result = value.Inverse();
+            Assert.That(result.Number == 0 && result.Exponent == 0);
+        }
     }
 }

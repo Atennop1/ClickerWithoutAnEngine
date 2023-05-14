@@ -20,5 +20,21 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
             var result = value.ShiftLeft(2);
             Assert.That(result.Number == -1 && result.Exponent == 5);
         }
+        
+        [Test]
+        public void IsShiftLeftCorrect3()
+        {
+            var value = new IdleNumber(-10, 2);
+            var result = value.ShiftLeft(0);
+            Assert.That(result.Number == -1 && result.Exponent == 3);
+        }
+        
+        [Test]
+        public void IsShiftLeftCorrect4()
+        {
+            var value = new IdleNumber(-10, 2);
+            var result = value.ShiftLeft(-1);
+            Assert.That(result.Number == -1 && result.Exponent == 2);
+        }
     }
 }
