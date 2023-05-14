@@ -1,4 +1,6 @@
-﻿namespace ClickerWithoutAnEngine.Core
+﻿using ClickerWithoutAnEngine.Extensions;
+
+namespace ClickerWithoutAnEngine.Math
 {
     public static class MathCasts
     {

@@ -1,4 +1,4 @@
-﻿namespace ClickerWithoutAnEngine.Core
+﻿namespace ClickerWithoutAnEngine.Math
 {
     public static class LogicOperations
     {
@@ -9,7 +9,7 @@
             => left.Equals(new IdleNumber(right));
         
         public static bool IsEquals(this IIdleNumber left, IIdleNumber right)
-            => left.Exponent == right.Exponent && Math.Abs(left.Number - right.Number) < float.Epsilon;
+            => left.Exponent == right.Exponent && System.Math.Abs(left.Number - right.Number) < float.Epsilon;
 
 
 

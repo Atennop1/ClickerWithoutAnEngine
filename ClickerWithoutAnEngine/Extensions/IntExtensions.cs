@@ -1,4 +1,4 @@
-﻿namespace ClickerWithoutAnEngine.Core
+﻿namespace ClickerWithoutAnEngine.Extensions
 {
     public static class IntExtensions
     {

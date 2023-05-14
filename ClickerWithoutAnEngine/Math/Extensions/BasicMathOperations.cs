@@ -1,4 +1,6 @@
-﻿namespace ClickerWithoutAnEngine.Core
+﻿using ClickerWithoutAnEngine.Extensions;
+
+namespace ClickerWithoutAnEngine.Math
 {
     public static class BasicMathOperations
     {
@@ -87,7 +89,7 @@
                 return new IdleNumber();
 
             var newExponent = idleNumber.Exponent * power;
-            var newNumber = (float)Math.Pow(idleNumber.Number, power);
+            var newNumber = (float)System.Math.Pow(idleNumber.Number, power);
 
             return new IdleNumber(newNumber, newExponent);
         }

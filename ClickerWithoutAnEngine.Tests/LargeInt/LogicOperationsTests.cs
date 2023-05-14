@@ -1,4 +1,4 @@
-﻿using ClickerWithoutAnEngine.Core;
+﻿using ClickerWithoutAnEngine.Math;
 using NUnit.Framework;
 
 namespace ClickerWithoutAnEngine.Tests.LargeInt

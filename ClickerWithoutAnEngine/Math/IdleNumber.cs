@@ -1,4 +1,4 @@
-﻿namespace ClickerWithoutAnEngine.Core
+﻿namespace ClickerWithoutAnEngine.Math
 {
     public sealed class IdleNumber : IIdleNumber
     {

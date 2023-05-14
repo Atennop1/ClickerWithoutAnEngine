@@ -1,9 +1,11 @@
-﻿namespace ClickerWithoutAnEngine.Core
+﻿using ClickerWithoutAnEngine.Extensions;
+
+namespace ClickerWithoutAnEngine.Math
 {
     public static class SpecificMathOperations
     {
         public static IIdleNumber Abs(this IIdleNumber value)
-            => new IdleNumber(Math.Abs(value.Number), value.Exponent);
+            => new IdleNumber(System.Math.Abs(value.Number), value.Exponent);
 
         public static IIdleNumber Negate(this IIdleNumber value)
             => new IdleNumber(-value.Number, value.Exponent);
