@@ -20,10 +20,14 @@
                     number *= 10f;
                     exponent--;
                 }
+                
+                Exponent = exponent;
+                Number = number;
+                return;
             }
 
-            Exponent = exponent;
-            Number = number;
+            Exponent = 0;
+            Number = 0;
         }
 
         public IdleNumber(IIdleNumber idleNumber)

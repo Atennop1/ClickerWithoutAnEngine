@@ -7,47 +7,49 @@
             var decimalPlaces = System.Math.Max(-value.Exponent, 0);
             var expandedNumber = value.Number;
 
-            for (var i = 0; i < decimalPlaces; i++) 
+            for (var i = 0; i < decimalPlaces; i++)
                 expandedNumber *= 10f;
 
-            var roundedNumber = (int)System.Math.Floor(expandedNumber);
+            var roundedNumber = (int)System.Math.Floor(System.Math.Abs(expandedNumber));
+            roundedNumber *= System.Math.Sign(expandedNumber);
 
-            for (var i = 0; i < decimalPlaces; i++) 
+            for (var i = 0; i < decimalPlaces; i++)
                 roundedNumber /= 10;
 
             return new IdleNumber(roundedNumber, value.Exponent);
         }
-        
+
         public static IIdleNumber Ceil(this IIdleNumber value)
         {
             var decimalPlaces = System.Math.Max(-value.Exponent, 0);
             var expandedNumber = value.Number;
 
-            for (var i = 0; i < decimalPlaces; i++) 
+            for (var i = 0; i < decimalPlaces; i++)
                 expandedNumber *= 10f;
 
             var roundedNumber = (int)System.Math.Ceiling(expandedNumber);
 
-            for (var i = 0; i < decimalPlaces; i++) 
+            for (var i = 0; i < decimalPlaces; i++)
                 roundedNumber /= 10;
 
-            return new IdleNumber(roundedNumber, value.Exponent);
+            if (value.Number > 0)
+                return new IdleNumber(roundedNumber, value.Exponent);
+
+            if (value.Number < 0)
+                return new IdleNumber(roundedNumber - (float)(1 / System.Math.Pow(10, decimalPlaces)), value.Exponent);
+
+            return new IdleNumber();
         }
-        
+
         public static IIdleNumber Round(this IIdleNumber value)
         {
-            var roundedNumber = value;
+            var floor = value.Floor();
+            var ceil = value.Ceil();
 
-            if (value.Exponent >= 0 || value.Number == System.Math.Floor(value.Number)) 
-                return roundedNumber;
+            var diffFloor = System.Math.Abs(value.Number - floor.Number);
+            var diffCeil = System.Math.Abs(ceil.Number - value.Number);
             
-            var roundedDown = value.Floor();
-            var roundedUp = value.Ceil();
-                
-            var diffDown = value.Number - roundedDown.Number;
-            var diffUp = roundedUp.Number - value.Number;
-
-            roundedNumber = diffDown < diffUp ? roundedDown : roundedUp;
+            var roundedNumber = diffCeil <= diffFloor ? ceil : floor;
             return roundedNumber;
         }
     }

@@ -5,28 +5,41 @@ namespace ClickerWithoutAnEngine.Math
     public static class BasicMathOperations
     {
         public static IIdleNumber Add(this IIdleNumber idleNumber, int number)
-            => new IdleNumber(idleNumber.Number + number / 10.Pow(idleNumber.Exponent), idleNumber.Exponent);
-        
+            => idleNumber.Add(new IdleNumber(number));
+
         public static IIdleNumber Add(this IIdleNumber idleNumber, float number)
-            => new IdleNumber(idleNumber.Number + number / 10.Pow(idleNumber.Exponent), idleNumber.Exponent);
-        
-        public static IIdleNumber Add(this IIdleNumber first, IIdleNumber second) 
-            => first.Exponent >= second.Exponent 
-               ? first.Add(second.Number / 10.Pow(first.Exponent - second.Exponent)) 
-               : second.Add(first.Number / 10.Pow(second.Exponent - first.Exponent));
+            => idleNumber.Add(new IdleNumber(number));
+
+        public static IIdleNumber Add(this IIdleNumber first, IIdleNumber second)
+        {
+            if (first.Exponent == second.Exponent)
+                return new IdleNumber(first.Number + second.Number, first.Exponent);
+
+            var (higher, lower) = first.Exponent > second.Exponent ? (first, second) : (second, first);
+
+            var newLowerNumber = lower.Number / 10.Pow(higher.Exponent - lower.Exponent);
+            var newNumber = higher.Number + newLowerNumber;
+            return new IdleNumber(newNumber, higher.Exponent);
+        }
 
         
         
         public static IIdleNumber Subtract(this IIdleNumber idleNumber, int number)
-            => new IdleNumber(idleNumber.Number - number / 10.Pow(idleNumber.Exponent), idleNumber.Exponent);
-        
+            => idleNumber.Subtract(new IdleNumber(number));
+
         public static IIdleNumber Subtract(this IIdleNumber idleNumber, float number)
-            => new IdleNumber(idleNumber.Number - number / 10.Pow(idleNumber.Exponent), idleNumber.Exponent);
-        
-        public static IIdleNumber Subtract(this IIdleNumber first, IIdleNumber second) 
-            => first.Exponent >= second.Exponent 
-               ? first.Subtract(second.Number / 10.Pow(first.Exponent - second.Exponent)) 
-               : second.Subtract(first.Number / 10.Pow(second.Exponent - first.Exponent));
+            => idleNumber.Subtract(new IdleNumber(number));
+
+        public static IIdleNumber Subtract(this IIdleNumber first, IIdleNumber second)
+        {
+            if (first.Exponent == second.Exponent)
+                return new IdleNumber(first.Number - second.Number, first.Exponent);
+
+            if (first.Exponent > second.Exponent)
+                return new IdleNumber(first.Number - second.Number / 10.Pow(first.Exponent - second.Exponent), first.Exponent);
+
+            return new IdleNumber(first.Number / 10.Pow(second.Exponent - first.Exponent) - second.Number, second.Exponent);
+        }
 
         
         
@@ -51,10 +64,10 @@ namespace ClickerWithoutAnEngine.Math
 
 
         public static IIdleNumber Remainder(this IIdleNumber first, int second)
-            => first.Divide(new IdleNumber(second));
+            => first.Remainder(new IdleNumber(second));
         
         public static IIdleNumber Remainder(this IIdleNumber first, float second)
-            => first.Divide(new IdleNumber(second));
+            => first.Remainder(new IdleNumber(second));
 
         public static IIdleNumber Remainder(this IIdleNumber first, IIdleNumber second)
         {

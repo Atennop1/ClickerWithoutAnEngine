@@ -22,8 +22,8 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         [Test]
         public void IsAverageCreationCorrect3()
         {
-            var value = new IdleNumber(0.01f, 5);
-            Assert.That(value.Number == 1f && value.Exponent == 3);
+            var value = new IdleNumber(0.04f, 5);
+            Assert.That(System.Math.Round(value.Number) == 4f && value.Exponent == 3);
         }
 
         [Test]

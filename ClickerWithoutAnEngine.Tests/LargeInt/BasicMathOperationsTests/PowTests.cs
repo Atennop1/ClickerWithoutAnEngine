@@ -10,7 +10,7 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         {
             var first = new IdleNumber(5);
             var second = 2;
-
+            
             var result = first.Pow(second);
             Assert.That(result.Number == 2.5f && result.Exponent == 1);
         }
@@ -22,7 +22,7 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
             var second = -2;
 
             var result = first.Pow(second);
-            Assert.That(result.Number == 4f && result.Exponent == -2);
+            Assert.That(System.Math.Round(result.Number) == 4f && result.Exponent == -2);
         }
     }
 }

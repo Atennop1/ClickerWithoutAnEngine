@@ -8,21 +8,21 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         [Test]
         public void IsSubtractingCorrect1()
         {
-            var first = new IdleNumber(10);
-            var second = new IdleNumber(10, 1);
+            var first = new IdleNumber(-10);
+            var second = new IdleNumber(-10, 1);
 
             var result = first.Subtract(second);
-            Assert.That(result.Number == -9f && result.Exponent == 1);
+            Assert.That(result.Number == 9f && result.Exponent == 1);
         }
         
         [Test]
         public void IsSubtractingCorrect2()
         {
-            var first = new IdleNumber(10);
+            var first = new IdleNumber(-10);
             var second = 100;
 
             var result = first.Subtract(second);
-            Assert.That(result.Number == -9f && result.Exponent == 1);
+            Assert.That(result.Number == -1.1f && result.Exponent == 2);
         }
         
         [Test]
@@ -39,10 +39,10 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         public void IsSubtractingCorrectSecond4()
         {
             var first = new IdleNumber(10);
-            var second = new IdleNumber(10, 1);
+            var second = new IdleNumber(-10, 1);
 
-            var result = second.Subtract(first);
-            Assert.That(result.Number == 9f && result.Exponent == 1);
+            var result = first.Subtract(second);
+            Assert.That(result.Number == 1.1f && result.Exponent == 2);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         {
             var first = new IdleNumber(10, -2);
             var result = first.Negate();
-            Assert.That(result.Number == -10 && result.Exponent == -2);
+            Assert.That(result.Number == -1 && result.Exponent == -1);
         }
         
         [Test]
@@ -18,7 +18,7 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         {
             var value = new IdleNumber(-10, 2);
             var result = value.Negate();
-            Assert.That(result.Number == 10 && result.Exponent == 2);
+            Assert.That(result.Number == 1 && result.Exponent == 3);
         }
     }
 }

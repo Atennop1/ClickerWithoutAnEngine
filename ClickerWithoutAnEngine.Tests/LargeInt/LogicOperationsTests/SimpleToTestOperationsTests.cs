@@ -10,7 +10,7 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         {
             var first = new IdleNumber(0.5f, 2);
             var second = new IdleNumber(5f, 1);
-            Assert.That(first.Equals(second));
+            Assert.That(first.IsEquals(second));
         }
         
         [Test]

@@ -9,7 +9,7 @@
             => left.IsEquals(new IdleNumber(right));
         
         public static bool IsEquals(this IIdleNumber left, IIdleNumber right)
-            => left.Exponent == right.Exponent && System.Math.Abs(left.Number - right.Number) < float.Epsilon;
+            => (left.Exponent == right.Exponent || (left.Number == 0f && right.Number == 0f)) && System.Math.Abs(left.Number - right.Number) < float.Epsilon;
 
 
 

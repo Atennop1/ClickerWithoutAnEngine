@@ -28,11 +28,11 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         [Test]
         public void IsAddingCorrect3()
         {
-            var first = new IdleNumber(10);
-            var second = 100f;
+            var first = new IdleNumber(-100);
+            var second = 10f;
 
             var result = first.Add(second);
-            Assert.That(result.Number == 1.1f && result.Exponent == 2);
+            Assert.That(result.Number == -9 && result.Exponent == 1);
         }
     }
 }
