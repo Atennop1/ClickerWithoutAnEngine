@@ -28,5 +28,13 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
             var result = value.Floor();
             Assert.That(result.Number == -5f && result.Exponent == 0);
         }
+        
+        [Test]
+        public void IsFloorCorrect4()
+        {
+            var value = new IdleNumber(-12, -1);
+            var result = value.Floor();
+            Assert.That(result.Number != -2f && result.Exponent == 0);
+        }
     }
 }

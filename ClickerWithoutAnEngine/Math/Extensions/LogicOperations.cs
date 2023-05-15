@@ -9,7 +9,7 @@
             => left.IsEquals(new IdleNumber(right));
         
         public static bool IsEquals(this IIdleNumber left, IIdleNumber right)
-            => (left.Exponent == right.Exponent || (left.Number == 0f && right.Number == 0f)) && System.Math.Abs(left.Number - right.Number) < float.Epsilon;
+            => left.Exponent == right.Exponent && System.Math.Abs(left.Number - right.Number) < float.Epsilon;
 
 
 
@@ -33,13 +33,13 @@
 
 
         public static bool LessOrEquals(this IIdleNumber left, int right)
-            => left.Greater(new IdleNumber(right));
+            => left.LessOrEquals(new IdleNumber(right));
         
         public static bool LessOrEquals(this IIdleNumber left, float right)
             => left.LessOrEquals(new IdleNumber(right)); 
         
         public static bool LessOrEquals(this IIdleNumber left, IIdleNumber right)
-            => !left.Greater(right);
+            => left.Less(right) || left.IsEquals(right);
 
         
         
@@ -63,13 +63,13 @@
         
         
         public static bool GreaterOrEquals(this IIdleNumber left, int right)
-            => left.Greater(new IdleNumber(right));
+            => left.GreaterOrEquals(new IdleNumber(right));
         
         public static bool GreaterOrEquals(this IIdleNumber left, float right)
             => left.GreaterOrEquals(new IdleNumber(right)); 
         
         public static bool GreaterOrEquals(this IIdleNumber left, IIdleNumber right)
-            => !left.Less(right);
+            => left.Greater(right) || left.IsEquals(right);
 
 
 

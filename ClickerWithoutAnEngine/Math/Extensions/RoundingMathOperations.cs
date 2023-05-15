@@ -32,13 +32,12 @@
             for (var i = 0; i < decimalPlaces; i++)
                 roundedNumber /= 10;
 
-            if (value.Number > 0)
-                return new IdleNumber(roundedNumber, value.Exponent);
-
-            if (value.Number < 0)
-                return new IdleNumber(roundedNumber - (float)(1 / System.Math.Pow(10, decimalPlaces)), value.Exponent);
-
-            return new IdleNumber();
+            if (value.Number == 0)
+                return new IdleNumber();
+            
+            return value.Number > 0 
+                ? new IdleNumber(roundedNumber, value.Exponent) 
+                : new IdleNumber(roundedNumber - (float)(1 / System.Math.Pow(10, decimalPlaces)), value.Exponent);
         }
 
         public static IIdleNumber Round(this IIdleNumber value)

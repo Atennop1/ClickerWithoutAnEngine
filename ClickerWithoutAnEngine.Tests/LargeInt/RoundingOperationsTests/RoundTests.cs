@@ -16,7 +16,7 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         [Test]
         public void IsRoundCorrect2()
         {
-            var value = new IdleNumber(2, 1);
+            var value = new IdleNumber(20);
             var result = value.Round();
             Assert.That(result.Number == 2f && result.Exponent == 1);
         }
@@ -35,6 +35,22 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
             var value = new IdleNumber(-560, -2);
             var result = value.Round();
             Assert.That(result.Number == -6f && result.Exponent == 0);
+        }
+        
+        [Test]
+        public void IsRoundCorrect5()
+        {
+            var value = new IdleNumber(26);
+            var result = value.Round();
+            Assert.That(result.Number != 2f && result.Exponent == 1);
+        }
+        
+        [Test]
+        public void IsRoundCorrect6()
+        {
+            var value = new IdleNumber(18);
+            var result = value.Round();
+            Assert.That(result.Number != 1f && result.Exponent == 1);
         }
     }
 }
