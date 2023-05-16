@@ -1,14 +1,14 @@
 ﻿using ClickerWithoutAnEngine.Math;
 using NUnit.Framework;
 
-namespace ClickerWithoutAnEngine.Tests.LargeInt
+namespace ClickerWithoutAnEngine.Tests.IdleNumber
 {
     public sealed class CeilTests
     {
         [Test]
         public void IsCeilCorrect1()
         {
-            var value = new IdleNumber(512, -2);
+            var value = new Math.IdleNumber(512, -2);
             var result = value.Ceil();
             Assert.That(result.Number == 6f && result.Exponent == 0);
         }
@@ -16,7 +16,7 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         [Test]
         public void IsCeilCorrect2()
         {
-            var value = new IdleNumber(20);
+            var value = new Math.IdleNumber(20);
             var result = value.Ceil();
             Assert.That(result.Number == 2f && result.Exponent == 1);
         }
@@ -24,7 +24,7 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         [Test]
         public void IsCeilCorrect3()
         {
-            var value = new IdleNumber(-512, -2);
+            var value = new Math.IdleNumber(-512, -2);
             var result = value.Ceil();
             Assert.That(result.Number == -6f && result.Exponent == 0);
         }
@@ -32,7 +32,7 @@ namespace ClickerWithoutAnEngine.Tests.LargeInt
         [Test]
         public void IsCeilCorrect4()
         {
-            var value = new IdleNumber(-12, -1);
+            var value = new Math.IdleNumber(-12, -1);
             var result = value.Ceil();
             Assert.That(result.Number != -1f && result.Exponent == 0);
         }
