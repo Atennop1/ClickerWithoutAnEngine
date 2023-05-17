@@ -36,18 +36,21 @@ namespace ClickerWithoutAnEngine.Math
             => new IdleNumber(value);
 
         public static IIdleNumber ToIdleNumber(this ushort value) 
-            => new IdleNumber((uint)value);
+            => new IdleNumber(value);
 
         public static IIdleNumber ToIdleNumber(this int value) 
+            => new IdleNumber(value);
+        
+        public static IIdleNumber ToIdleNumber(this uint value) 
             => new IdleNumber(value);
 
         public static IIdleNumber ToIdleNumber(this long value) 
             => new IdleNumber(value);
 
-        public static IIdleNumber ToIdleNumber(this uint value) 
-            => new IdleNumber(value);
-
         public static IIdleNumber ToIdleNumber(this ulong value) 
+            => new IdleNumber(value);
+        
+        public static IIdleNumber ToIdleNumber(this float value) 
             => new IdleNumber(value);
     }
 }
