@@ -22,17 +22,12 @@
         public static bool Less(this IIdleNumber left, IIdleNumber right)
         {
             if (left.Exponent == right.Exponent)
-            {
-                if (left.Number < 0 || right.Number < 0)
-                    return left.Number > right.Number;
-
                 return left.Number < right.Number;
-            }
 
-            if (left.Exponent < right.Exponent)
-                return left.Number >= 0 && right.Number >= 0;
+            if (left.Exponent > right.Exponent)
+                return left.Number < 0;
 
-            return left.Number < 0 || right.Number < 0;
+            return right.Number >= 0;
         }
 
 
@@ -56,21 +51,13 @@
 
         public static bool Greater(this IIdleNumber left, IIdleNumber right)
         {
-            if (left.Exponent > right.Exponent)
-            {
-                if (left.Number < 0 && right.Number < 0)
-                    return left.Number > right.Number;
-                
-                return true;
-            }
+            if (left.Exponent == right.Exponent)
+                return left.Number > right.Number;
 
-            if (left.Exponent >= right.Exponent) 
-                return left.Number > right.Number;
-            
-            if (left.Number < 0 && right.Number < 0)
-                return left.Number > right.Number;
-                
-            return false;
+            if (left.Exponent > right.Exponent)
+                return left.Number >= 0;
+
+            return right.Number < 0;
         }
 
 

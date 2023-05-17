@@ -56,7 +56,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         [Test]
         public static void IsLessOrEqualsCorrect7()
         {
-            var first = new Math.IdleNumber(0.5f, 2);
+            var first = new Math.IdleNumber(50);
             var second = 40f;
             Assert.That(!first.LessOrEquals(second));
         }
