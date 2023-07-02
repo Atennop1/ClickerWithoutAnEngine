@@ -1,4 +1,4 @@
-﻿using ClickerWithoutAnEngine.Extensions;
+﻿using ClickerWithoutAnEngine.Tools;
 
 namespace ClickerWithoutAnEngine.Math
 {

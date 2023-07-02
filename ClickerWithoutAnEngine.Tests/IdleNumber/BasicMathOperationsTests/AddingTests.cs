@@ -92,7 +92,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 0f;
 
             var result = first.Add(second);
-            Assert.That(result.Number == 0f && result.Exponent == 0);
+            Assert.That(result is { Number: 0f, Exponent: 0 });
         }
     }
 }

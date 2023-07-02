@@ -1,9 +1,11 @@
-﻿using ClickerWithoutAnEngine.Extensions;
+﻿using ClickerWithoutAnEngine.Tools;
 
 namespace ClickerWithoutAnEngine.Math
 {
     public static class BasicMathOperations
     {
+        public const int UsingDigitsCount = 12;
+        
         public static IIdleNumber Add(this IIdleNumber idleNumber, int number)
             => idleNumber.Add(new IdleNumber(number));
 

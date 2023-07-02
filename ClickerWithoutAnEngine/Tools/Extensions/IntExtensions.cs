@@ -1,4 +1,4 @@
-﻿namespace ClickerWithoutAnEngine.Extensions
+﻿namespace ClickerWithoutAnEngine.Tools
 {
     public static class IntExtensions
     {
@@ -17,7 +17,10 @@
             
             return result;
         }
-        
+
+        public static int Sign(this int value) 
+            => value >= 0 ? 1 : -1;
+
         public static int ThrowExceptionIfLessThanZero(this int number)
         {
             if (number < 0)
