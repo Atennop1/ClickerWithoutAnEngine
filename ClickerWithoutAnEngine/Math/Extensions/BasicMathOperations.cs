@@ -4,7 +4,7 @@ namespace ClickerWithoutAnEngine.Math
 {
     public static class BasicMathOperations
     {
-        public const int UsingDigitsCount = 12;
+        public const int UsingDigitsCount = 9;
         
         public static IIdleNumber Add(this IIdleNumber idleNumber, int number)
             => idleNumber.Add(new IdleNumber(number));
@@ -18,6 +18,9 @@ namespace ClickerWithoutAnEngine.Math
                 return new IdleNumber(first.Number + second.Number, first.Exponent);
 
             var (higher, lower) = first.Exponent > second.Exponent ? (first, second) : (second, first);
+
+            if (System.Math.Abs(higher.Exponent - lower.Exponent) > UsingDigitsCount)
+                return higher;
 
             var newLowerNumber = lower.Number / 10.Pow(higher.Exponent - lower.Exponent);
             var newNumber = higher.Number + newLowerNumber;
@@ -38,9 +41,14 @@ namespace ClickerWithoutAnEngine.Math
                 return new IdleNumber(first.Number - second.Number, first.Exponent);
 
             if (first.Exponent > second.Exponent)
-                return new IdleNumber(first.Number - second.Number / 10.Pow(first.Exponent - second.Exponent), first.Exponent);
-
-            return new IdleNumber(first.Number / 10.Pow(second.Exponent - first.Exponent) - second.Number, second.Exponent);
+            {
+                return first.Exponent - second.Exponent > UsingDigitsCount 
+                    ? first : new IdleNumber(first.Number - second.Number / 10.Pow(first.Exponent - second.Exponent), first.Exponent);
+            }
+            
+            return second.Exponent - first.Exponent > UsingDigitsCount 
+                ? second.Negate()
+                : new IdleNumber(first.Number / 10.Pow(second.Exponent - first.Exponent) - second.Number, second.Exponent);
         }
 
         
@@ -81,12 +89,18 @@ namespace ClickerWithoutAnEngine.Math
             if (second.Number == 0f)
                 throw new DivideByZeroException("Attempted to divide by zero.");
 
-            if (first.Number == 0f)
+            if (first.Number == 0f || first.Exponent - second.Exponent < 0)
                 return new IdleNumber();
 
             var exponentDifference = first.Exponent - second.Exponent;
-            var adjustedDivisor = second.Number * 10.Pow(exponentDifference);
 
+            switch (exponentDifference)
+            {
+                case 0: return new IdleNumber(first.Number % second.Number, first.Exponent - second.Exponent);
+                case > UsingDigitsCount: return new IdleNumber();
+            }
+
+            var adjustedDivisor = second.Number * 10.Pow(exponentDifference);
             var remainder = first.Number % adjustedDivisor;
             return new IdleNumber(remainder, first.Exponent);
         }

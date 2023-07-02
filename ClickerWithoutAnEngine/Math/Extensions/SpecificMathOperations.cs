@@ -1,6 +1,4 @@
-﻿using ClickerWithoutAnEngine.Tools;
-
-namespace ClickerWithoutAnEngine.Math
+﻿namespace ClickerWithoutAnEngine.Math
 {
     public static class SpecificMathOperations
     {
@@ -14,9 +12,9 @@ namespace ClickerWithoutAnEngine.Math
             => value.Number == 0 ? value : new IdleNumber(1).Divide(value);
 
         public static IIdleNumber ShiftLeft(this IIdleNumber value, int shift) 
-            => shift < 0 ? value.ShiftRight(-shift) : value.Multiply(10.Pow(shift));
+            => shift < 0 ? value.ShiftRight(-shift) : value.Multiply(new IdleNumber(1, shift));
 
         public static IIdleNumber ShiftRight(this IIdleNumber value, int shift) 
-            => shift < 0 ? value.ShiftLeft(-shift) : value.Divide(10.Pow(shift));
+            => shift < 0 ? value.ShiftLeft(-shift) : value.Divide(new IdleNumber(1, shift));
     }
 }
