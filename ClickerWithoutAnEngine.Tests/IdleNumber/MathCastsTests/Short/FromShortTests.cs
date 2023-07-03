@@ -1,7 +1,7 @@
 ﻿using ClickerWithoutAnEngine.Math;
 using NUnit.Framework;
 
-namespace ClickerWithoutAnEngine.Tests.IdleNumber
+namespace ClickerWithoutAnEngine.Tests.IdleNumber.MathCastsTests.Short
 {
     public sealed class FromShortTests
     {
@@ -10,7 +10,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             short value = 10;
             var result = value.ToIdleNumber();
-            Assert.That(result.Number == 1 && result.Exponent == 1);
+            Assert.That(result is { Number: 1, Exponent: 1 });
         }
         
         [Test]
@@ -18,7 +18,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             short value = -10;
             var result = value.ToIdleNumber();
-            Assert.That(result.Number == -1 && result.Exponent == 1);
+            Assert.That(result is { Number: -1, Exponent: 1 });
         }
 
         [Test]
@@ -26,7 +26,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             short value = 0;
             var result = value.ToIdleNumber();
-            Assert.That(result.Number == 0 && result.Exponent == 0);
+            Assert.That(result is { Number: 0, Exponent: 0 });
         }
     }
 }

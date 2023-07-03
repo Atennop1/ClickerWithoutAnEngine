@@ -1,7 +1,7 @@
 ﻿using ClickerWithoutAnEngine.Math;
 using NUnit.Framework;
 
-namespace ClickerWithoutAnEngine.Tests.IdleNumber
+namespace ClickerWithoutAnEngine.Tests.IdleNumber.BasicMathOperationsTests
 {
     public sealed class PowTests
     {
@@ -12,7 +12,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 2;
             
             var result = first.Pow(second);
-            Assert.That(result.Number == 2.5f && result.Exponent == 1);
+            Assert.That(result is { Number: 2.5f, Exponent: 1 });
         }
         
         [Test]
@@ -32,7 +32,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 2;
 
             var result = first.Pow(second);
-            Assert.That(result.Number == 2.5f && result.Exponent == 1);
+            Assert.That(result is { Number: 2.5f, Exponent: 1 });
         }
         
         [Test]
@@ -42,7 +42,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = -2;
 
             var result = first.Pow(second);
-            Assert.That(System.Math.Round(result.Number) == 4f && result.Exponent == -2);
+            Assert.That(result is { Number: 4f, Exponent: -2 });
         }
         
         [Test]
@@ -52,7 +52,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = -1;
 
             var result = first.Pow(second);
-            Assert.That(result.Number == 0f && result.Exponent == 0);
+            Assert.That(result is { Number: 0f, Exponent: 0 });
         }
         
         [Test]
@@ -62,7 +62,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 1;
 
             var result = first.Pow(second);
-            Assert.That(result.Number == 0f && result.Exponent == 0);
+            Assert.That(result is { Number: 0f, Exponent: 0 });
         }
         
         [Test]
@@ -72,7 +72,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 0;
 
             var result = first.Pow(second);
-            Assert.That(result.Number == 1f && result.Exponent == 0);
+            Assert.That(result is { Number: 1f, Exponent: 0 });
         }
         
         [Test]
@@ -82,7 +82,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 0;
 
             var result = first.Pow(second);
-            Assert.That(result.Number == 1f && result.Exponent == 0);
+            Assert.That(result is { Number: 1f, Exponent: 0 });
         }
         
         [Test]
@@ -92,7 +92,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 0;
 
             var result = first.Pow(second);
-            Assert.That(result.Number == 1f && result.Exponent == 0);
+            Assert.That(result is { Number: 1f, Exponent: 0 });
         }
         
         [Test]
@@ -102,7 +102,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 1;
 
             var result = first.Pow(second);
-            Assert.That(result.Number == -5f && result.Exponent == 0);
+            Assert.That(result is { Number: -5f, Exponent: 0 });
         }
         
         [Test]
@@ -112,7 +112,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = -1;
 
             var result = first.Pow(second);
-            Assert.That(result.Number == -2f && result.Exponent == -1);
+            Assert.That(result is { Number: -2f, Exponent: -1 });
         }
     }
 }

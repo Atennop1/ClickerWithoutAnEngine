@@ -8,14 +8,14 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         public void IsAverageCreationCorrect1()
         {
             var value = new Math.IdleNumber(1f, 5);
-            Assert.That(value.Number == 1f && value.Exponent == 5);
+            Assert.That(value is { Number: 1f, Exponent: 5 });
         }
         
         [Test]
         public void IsAverageCreationCorrect2()
         {
             var value = new Math.IdleNumber(100f, 5);
-            Assert.That(value.Number == 1f && value.Exponent == 7);
+            Assert.That(value is { Number: 1f, Exponent: 7 });
         }
         
         [Test]
@@ -30,7 +30,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             var first = new Math.IdleNumber(100, 5);
             var second = new Math.IdleNumber(first);
-            Assert.That(second.Number == 1 && second.Exponent == 7);
+            Assert.That(second is { Number: 1, Exponent: 7 });
         }
     }
 }

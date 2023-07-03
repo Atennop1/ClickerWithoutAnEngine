@@ -1,7 +1,7 @@
 ﻿using ClickerWithoutAnEngine.Math;
 using NUnit.Framework;
 
-namespace ClickerWithoutAnEngine.Tests.IdleNumber
+namespace ClickerWithoutAnEngine.Tests.IdleNumber.MathCastsTests.Byte
 {
     public sealed class FromByteTests
     {
@@ -10,7 +10,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             byte value = 10;
             var result = value.ToIdleNumber();
-            Assert.That(result.Number == 1 && result.Exponent == 1);
+            Assert.That(result is { Number: 1, Exponent: 1 });
         }
 
         [Test]
@@ -18,7 +18,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             byte value = 0;
             var result = value.ToIdleNumber();
-            Assert.That(result.Number == 0 && result.Exponent == 0);
+            Assert.That(result is { Number: 0, Exponent: 0 });
         }
     }
 }

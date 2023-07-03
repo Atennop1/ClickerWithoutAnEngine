@@ -1,7 +1,7 @@
 ﻿using ClickerWithoutAnEngine.Math;
 using NUnit.Framework;
 
-namespace ClickerWithoutAnEngine.Tests.IdleNumber
+namespace ClickerWithoutAnEngine.Tests.IdleNumber.RoundingOperationsTests
 {
     public sealed class FloorTests
     {
@@ -10,7 +10,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             var value = new Math.IdleNumber(512, -2);
             var result = value.Floor();
-            Assert.That(result.Number == 5f && result.Exponent == 0);
+            Assert.That(result is { Number: 5f, Exponent: 0 });
         }
         
         [Test]
@@ -18,7 +18,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             var value = new Math.IdleNumber(2, 1);
             var result = value.Floor();
-            Assert.That(result.Number == 2f && result.Exponent == 1);
+            Assert.That(result is { Number: 2f, Exponent: 1 });
         }
         
         [Test]
@@ -26,7 +26,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             var value = new Math.IdleNumber(-512, -2);
             var result = value.Floor();
-            Assert.That(result.Number == -5f && result.Exponent == 0);
+            Assert.That(result is { Number: -5f, Exponent: 0 });
         }
         
         [Test]

@@ -23,7 +23,7 @@ namespace ClickerWithoutAnEngine.Math
             if (value.Greater(float.MaxValue))
                 throw new OverflowException("Value is greater than System.uint.MaxValue.");
 
-            return value.Number * 10.Pow(value.Exponent);
+            return (float)value.Number * 10.Pow(value.Exponent);
         }
         
         public static IIdleNumber ToIdleNumber(this byte value) 

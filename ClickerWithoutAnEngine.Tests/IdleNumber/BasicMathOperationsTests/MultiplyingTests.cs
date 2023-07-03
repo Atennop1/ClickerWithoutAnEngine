@@ -1,7 +1,7 @@
 ﻿using ClickerWithoutAnEngine.Math;
 using NUnit.Framework;
 
-namespace ClickerWithoutAnEngine.Tests.IdleNumber
+namespace ClickerWithoutAnEngine.Tests.IdleNumber.BasicMathOperationsTests
 {
     public sealed class MultiplyingTests
     {
@@ -12,7 +12,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = new Math.IdleNumber(1, 27);
 
             var result = first.Multiply(second);
-            Assert.That(result is { Number: 1.2f, Exponent: 28 });
+            Assert.That(result is { Number: 1.2d, Exponent: 28 });
         }
         
         [Test]
@@ -22,7 +22,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = -100;
 
             var result = first.Multiply(second);
-            Assert.That(result is { Number: -1.2f, Exponent: -9 });
+            Assert.That(result is { Number: -1.2d, Exponent: -9 });
         }
         
         [Test]
@@ -32,7 +32,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = new Math.IdleNumber(1, -10);
             
             var result = first.Multiply(second);
-            Assert.That(result is { Number: -1.2f, Exponent: -25 });
+            Assert.That(result is { Number: -1.2d, Exponent: -25 });
         }
         
         [Test]
@@ -42,7 +42,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = -100f;
             
             var result = first.Multiply(second);
-            Assert.That(result.Number == 1.2f && result.Exponent == 3);
+            Assert.That(result is { Number: 1.2d, Exponent: 3 });
         }
         
         [Test]

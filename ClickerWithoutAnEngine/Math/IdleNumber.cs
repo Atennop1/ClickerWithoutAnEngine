@@ -2,10 +2,10 @@
 {
     public sealed class IdleNumber : IIdleNumber
     {
-        public float Number { get; }
+        public double Number { get; }
         public int Exponent { get; }
 
-        public IdleNumber(float number = 0f, int exponent = 0)
+        public IdleNumber(double number = 0f, int exponent = 0)
         {
             if (number != 0)
             {

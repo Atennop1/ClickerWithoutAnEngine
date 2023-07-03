@@ -114,7 +114,7 @@ namespace ClickerWithoutAnEngine.Math
                 return new IdleNumber();
 
             var newExponent = idleNumber.Exponent * power;
-            var newNumber = (float)System.Math.Pow(idleNumber.Number, power);
+            var newNumber = System.Math.Pow(idleNumber.Number, power);
 
             return new IdleNumber(newNumber, newExponent);
         }

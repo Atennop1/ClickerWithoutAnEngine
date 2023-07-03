@@ -1,7 +1,7 @@
 ﻿using ClickerWithoutAnEngine.Math;
 using NUnit.Framework;
 
-namespace ClickerWithoutAnEngine.Tests.IdleNumber
+namespace ClickerWithoutAnEngine.Tests.IdleNumber.BasicMathOperationsTests
 {
     public sealed class RemainderTests
     {
@@ -32,7 +32,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 2f;
 
             var result = first.Remainder(second);
-            Assert.That(result.Number == -1f && result.Exponent == 0);
+            Assert.That(result is { Number: -1f, Exponent: 0 });
         }
         
         [Test]
@@ -42,7 +42,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = -2f;
 
             var result = first.Remainder(second);
-            Assert.That(result.Number == -1f && result.Exponent == 0);
+            Assert.That(result is { Number: -1f, Exponent: 0 });
         }
         
         [Test]
@@ -52,7 +52,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = -2f;
 
             var result = first.Remainder(second);
-            Assert.That(result.Number == 0f && result.Exponent == 0);
+            Assert.That(result is { Number: 0f, Exponent: 0 });
         }
         
         [Test]
@@ -62,7 +62,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 2f;
 
             var result = first.Remainder(second);
-            Assert.That(result.Number == 0f && result.Exponent == 0);
+            Assert.That(result is { Number: 0f, Exponent: 0 });
         }
     }
 }

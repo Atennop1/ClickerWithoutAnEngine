@@ -1,7 +1,7 @@
 ﻿using ClickerWithoutAnEngine.Math;
 using NUnit.Framework;
 
-namespace ClickerWithoutAnEngine.Tests.IdleNumber
+namespace ClickerWithoutAnEngine.Tests.IdleNumber.SpecificMathOperationsTests
 {
     public sealed class InverseTests
     {
@@ -10,7 +10,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             var value = new Math.IdleNumber(10, -2);
             var result = value.Inverse();
-            Assert.That(result.Number == 1 && result.Exponent == 1);
+            Assert.That(result is { Number: 1, Exponent: 1 });
         }
         
         [Test]
@@ -18,7 +18,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             var value = new Math.IdleNumber(-10, 2);
             var result = value.Inverse();
-            Assert.That(result.Number == -1 && result.Exponent == -3);
+            Assert.That(result is { Number: -1, Exponent: -3 });
         }
         
         [Test]
@@ -26,7 +26,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             var value = new Math.IdleNumber();
             var result = value.Inverse();
-            Assert.That(result.Number == 0 && result.Exponent == 0);
+            Assert.That(result is { Number: 0, Exponent: 0 });
         }
     }
 }

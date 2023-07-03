@@ -1,7 +1,7 @@
 ﻿using ClickerWithoutAnEngine.Math;
 using NUnit.Framework;
 
-namespace ClickerWithoutAnEngine.Tests.IdleNumber
+namespace ClickerWithoutAnEngine.Tests.IdleNumber.BasicMathOperationsTests
 {
     public sealed class DividingTests
     {
@@ -22,7 +22,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = new Math.IdleNumber(-1, 25);
 
             var result = first.Divide(second);
-            Assert.That(result is { Number: -1.2f, Exponent: -24 });
+            Assert.That(result is { Number: -1.2d, Exponent: -24 });
         }
         
         [Test]
@@ -32,7 +32,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 100f;
 
             var result = first.Divide(second);
-            Assert.That(result is { Number: -1.2f, Exponent: -101 });
+            Assert.That(result is { Number: -1.2d, Exponent: -101 });
         }
         
         [Test]
@@ -42,7 +42,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = new Math.IdleNumber(-1, -23);
 
             var result = first.Divide(second);
-            Assert.That(result is { Number: 1.2f, Exponent: 12 });
+            Assert.That(result is { Number: 1.2d, Exponent: 12 });
         }
         
         [Test]

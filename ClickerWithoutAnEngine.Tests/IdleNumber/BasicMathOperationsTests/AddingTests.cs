@@ -1,8 +1,7 @@
 ﻿using ClickerWithoutAnEngine.Math;
-using ClickerWithoutAnEngine.Tools;
 using NUnit.Framework;
 
-namespace ClickerWithoutAnEngine.Tests.IdleNumber
+namespace ClickerWithoutAnEngine.Tests.IdleNumber.BasicMathOperationsTests
 {
     public sealed class AddingTests
     {

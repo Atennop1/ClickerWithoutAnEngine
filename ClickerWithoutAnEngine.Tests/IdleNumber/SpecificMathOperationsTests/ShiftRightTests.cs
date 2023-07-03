@@ -1,7 +1,7 @@
 ﻿using ClickerWithoutAnEngine.Math;
 using NUnit.Framework;
 
-namespace ClickerWithoutAnEngine.Tests.IdleNumber
+namespace ClickerWithoutAnEngine.Tests.IdleNumber.SpecificMathOperationsTests
 {
     public sealed class ShiftRightTests
     {
@@ -10,7 +10,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             var value = new Math.IdleNumber(10, -2);
             var result = value.ShiftRight(2);
-            Assert.That(result.Number == 1 && result.Exponent == -3);
+            Assert.That(result is { Number: 1, Exponent: -3 });
         }
         
         [Test]
@@ -18,7 +18,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             var value = new Math.IdleNumber(-10, 2);
             var result = value.ShiftRight(2);
-            Assert.That(result.Number == -1 && result.Exponent == 1);
+            Assert.That(result is { Number: -1, Exponent: 1 });
         }
         
         [Test]
@@ -26,7 +26,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             var value = new Math.IdleNumber(-10, 2);
             var result = value.ShiftRight(0);
-            Assert.That(result.Number == -1 && result.Exponent == 3);
+            Assert.That(result is { Number: -1, Exponent: 3 });
         }
         
         [Test]
@@ -34,7 +34,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         {
             var value = new Math.IdleNumber(-10, 2);
             var result = value.ShiftRight(-2);
-            Assert.That(result.Number == -1 && result.Exponent == 5);
+            Assert.That(result is { Number: -1, Exponent: 5 });
         }
     }
 }

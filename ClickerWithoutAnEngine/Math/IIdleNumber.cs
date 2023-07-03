@@ -2,7 +2,7 @@
 {
     public interface IIdleNumber
     {
-        float Number { get; }
+        double Number { get; }
         int Exponent { get; }
     }
 }
