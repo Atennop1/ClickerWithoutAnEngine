@@ -4,6 +4,9 @@
     {
         public static IIdleNumber Floor(this IIdleNumber value)
         {
+            if (-value.Exponent > Constants.UsingDigitsCount)
+                return new IdleNumber();
+            
             var decimalPlaces = System.Math.Max(-value.Exponent, 0);
             var expandedNumber = value.Number;
 
@@ -21,6 +24,9 @@
 
         public static IIdleNumber Ceil(this IIdleNumber value)
         {
+            if (-value.Exponent > Constants.UsingDigitsCount)
+                return new IdleNumber();
+            
             var decimalPlaces = System.Math.Max(-value.Exponent, 0);
             var expandedNumber = value.Number;
 

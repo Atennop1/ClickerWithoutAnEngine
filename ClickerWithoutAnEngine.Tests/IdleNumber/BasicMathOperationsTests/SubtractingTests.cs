@@ -9,40 +9,40 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         public void IsSubtractingCorrect1()
         {
             var first = new Math.IdleNumber(10);
-            var second = new Math.IdleNumber(100);
+            var second = new Math.IdleNumber(1, 13);
 
             var result = first.Subtract(second);
-            Assert.That(result.Number == -9f && result.Exponent == 1);
+            Assert.That(result is { Number: -1f, Exponent: 13 });
         }
         
         [Test]
         public void IsSubtractingCorrect2()
         {
-            var first = new Math.IdleNumber(-10);
+            var first = new Math.IdleNumber(-1, 16);
             var second = 100;
 
             var result = first.Subtract(second);
-            Assert.That(result.Number == -1.1f && result.Exponent == 2);
+            Assert.That(result is { Number: -1f, Exponent: 16 });
         }
         
         [Test]
         public void IsSubtractingCorrect3()
         {
             var first = new Math.IdleNumber(10);
-            var second = -100f;
+            var second = new Math.IdleNumber(-1, 27);
 
             var result = first.Subtract(second);
-            Assert.That(result.Number == 1.1f && result.Exponent == 2);
+            Assert.That(result is { Number: 1f, Exponent: 27 });
         }
         
         [Test]
         public void IsSubtractingCorrectSecond4()
         {
-            var first = new Math.IdleNumber(-10);
+            var first = new Math.IdleNumber(1, 16);
             var second = new Math.IdleNumber(-100);
 
             var result = first.Subtract(second);
-            Assert.That(result.Number == 9f && result.Exponent == 1);
+            Assert.That(result is { Number: 1f, Exponent: 16 });
         }
         
         [Test]
@@ -52,7 +52,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = new Math.IdleNumber(100);
 
             var result = first.Subtract(second);
-            Assert.That(result.Number == -1f && result.Exponent == 2);
+            Assert.That(result is { Number: -1f, Exponent: 2 });
         }
         
         [Test]
@@ -62,7 +62,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = new Math.IdleNumber(-100);
 
             var result = first.Subtract(second);
-            Assert.That(result.Number == 1f && result.Exponent == 2);
+            Assert.That(result is { Number: 1f, Exponent: 2 });
         }
         
         [Test]
@@ -72,7 +72,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = new Math.IdleNumber();
 
             var result = first.Subtract(second);
-            Assert.That(result.Number == 1f && result.Exponent == 1);
+            Assert.That(result is { Number: 1f, Exponent: 1 });
         }
         
         [Test]
@@ -82,7 +82,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = new Math.IdleNumber();
 
             var result = first.Subtract(second);
-            Assert.That(result.Number == -1f && result.Exponent == 1);
+            Assert.That(result is { Number: -1f, Exponent: 1 });
         }
         
         [Test]
@@ -92,7 +92,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = new Math.IdleNumber();
 
             var result = first.Subtract(second);
-            Assert.That(result.Number == 0f && result.Exponent == 0);
+            Assert.That(result is { Number: 0f, Exponent: 0 });
         }
     }
 }

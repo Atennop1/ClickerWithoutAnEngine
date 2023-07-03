@@ -4,8 +4,6 @@ namespace ClickerWithoutAnEngine.Math
 {
     public static class BasicMathOperations
     {
-        public const int UsingDigitsCount = 9;
-        
         public static IIdleNumber Add(this IIdleNumber idleNumber, int number)
             => idleNumber.Add(new IdleNumber(number));
 
@@ -19,7 +17,7 @@ namespace ClickerWithoutAnEngine.Math
 
             var (higher, lower) = first.Exponent > second.Exponent ? (first, second) : (second, first);
 
-            if (System.Math.Abs(higher.Exponent - lower.Exponent) > UsingDigitsCount)
+            if (System.Math.Abs(higher.Exponent - lower.Exponent) > Constants.UsingDigitsCount)
                 return higher;
 
             var newLowerNumber = lower.Number / 10.Pow(higher.Exponent - lower.Exponent);
@@ -42,11 +40,11 @@ namespace ClickerWithoutAnEngine.Math
 
             if (first.Exponent > second.Exponent)
             {
-                return first.Exponent - second.Exponent > UsingDigitsCount 
+                return first.Exponent - second.Exponent > Constants.UsingDigitsCount 
                     ? first : new IdleNumber(first.Number - second.Number / 10.Pow(first.Exponent - second.Exponent), first.Exponent);
             }
             
-            return second.Exponent - first.Exponent > UsingDigitsCount 
+            return second.Exponent - first.Exponent > Constants.UsingDigitsCount 
                 ? second.Negate()
                 : new IdleNumber(first.Number / 10.Pow(second.Exponent - first.Exponent) - second.Number, second.Exponent);
         }
@@ -97,7 +95,7 @@ namespace ClickerWithoutAnEngine.Math
             switch (exponentDifference)
             {
                 case 0: return new IdleNumber(first.Number % second.Number, first.Exponent - second.Exponent);
-                case > UsingDigitsCount: return new IdleNumber();
+                case > Constants.UsingDigitsCount: return new IdleNumber(second.Number - 1, second.Exponent);
             }
 
             var adjustedDivisor = second.Number * 10.Pow(exponentDifference);

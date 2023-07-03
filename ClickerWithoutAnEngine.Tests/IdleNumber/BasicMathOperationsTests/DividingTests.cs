@@ -8,41 +8,41 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         [Test]
         public void IsDividingCorrect1()
         {
-            var first = new Math.IdleNumber(12);
+            var first = new Math.IdleNumber(1.2f, 100);
             var second = new Math.IdleNumber(100);
 
             var result = first.Divide(second);
-            Assert.That(result.Number == 1.2f && result.Exponent == -1);
+            Assert.That(result is { Number: 1.2f, Exponent: 98 });
         }
         
         [Test]
         public void IsDividingCorrect2()
         {
             var first = new Math.IdleNumber(12);
-            var second = -100;
+            var second = new Math.IdleNumber(-1, 25);
 
             var result = first.Divide(second);
-            Assert.That(result.Number == -1.2f && result.Exponent == -1);
+            Assert.That(result is { Number: -1.2f, Exponent: -24 });
         }
         
         [Test]
         public void IsDividingCorrect3()
         {
-            var first = new Math.IdleNumber(-12);
+            var first = new Math.IdleNumber(-12, -100);
             var second = 100f;
 
             var result = first.Divide(second);
-            Assert.That(result.Number == -1.2f && result.Exponent == -1);
+            Assert.That(result is { Number: -1.2f, Exponent: -101 });
         }
         
         [Test]
         public void IsDividingCorrect4()
         {
-            var first = new Math.IdleNumber(-12);
-            var second = -100f;
+            var first = new Math.IdleNumber(-12, -12);
+            var second = new Math.IdleNumber(-1, -23);
 
             var result = first.Divide(second);
-            Assert.That(result.Number == 1.2f && result.Exponent == -1);
+            Assert.That(result is { Number: 1.2f, Exponent: 12 });
         }
         
         [Test]
@@ -52,7 +52,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = -100f;
 
             var result = first.Divide(second);
-            Assert.That(result.Number == 0f && result.Exponent == 0);
+            Assert.That(result is { Number: 0f, Exponent: 0 });
         }
         
         [Test]
@@ -62,7 +62,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
             var second = 100f;
 
             var result = first.Divide(second);
-            Assert.That(result.Number == 0f && result.Exponent == 0);
+            Assert.That(result is { Number: 0f, Exponent: 0 });
         }
     }
 }

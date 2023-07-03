@@ -8,21 +8,21 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber
         [Test]
         public void IsRemainderCorrect1()
         {
-            var first = new Math.IdleNumber(5);
+            var first = new Math.IdleNumber(5, 22);
             var second = new Math.IdleNumber(2);
 
             var result = first.Remainder(second);
-            Assert.That(result.Number == 1f && result.Exponent == 0);
+            Assert.That(result is { Number: 1, Exponent: 0 });
         }
         
         [Test]
         public void IsRemainderCorrect2()
         {
             var first = new Math.IdleNumber(5);
-            var second = -2;
+            var second = new Math.IdleNumber(1, 287);
 
             var result = first.Remainder(second);
-            Assert.That(result.Number == 1f && result.Exponent == 0);
+            Assert.That(result is { Number: 0, Exponent: 0 });
         }
         
         [Test]
