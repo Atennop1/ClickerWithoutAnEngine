@@ -28,21 +28,21 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber.BasicMathOperationsTests
         [Test]
         public void IsAddingCorrect3()
         {
-            var first = new Math.IdleNumber(-1, 50);
-            var second = 10f;
+            var first = new Math.IdleNumber(-1, -50);
+            var second = new Math.IdleNumber(-1, -53);
 
             var result = first.Add(second);
-            Assert.That(result is { Number: -1, Exponent: 50 });
+            Assert.That(result is { Number: -1.001d, Exponent: -50 });
         }
         
         [Test]
         public void IsAddingCorrect4()
         {
-            var first = new Math.IdleNumber(-1, 55);
+            var first = new Math.IdleNumber(-1, -55);
             var second = -10f;
 
             var result = first.Add(second);
-            Assert.That(result is { Number: -1f, Exponent: 55 });
+            Assert.That(result is { Number: -1f, Exponent: 1 });
         }
         
         [Test]
