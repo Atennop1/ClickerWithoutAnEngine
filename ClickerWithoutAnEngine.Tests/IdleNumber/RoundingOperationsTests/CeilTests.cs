@@ -26,7 +26,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber.RoundingOperationsTests
         {
             var value = new Math.IdleNumber(-512, -2);
             var result = value.Ceil();
-            Assert.That(result is { Number: -6f, Exponent: 0 });
+            Assert.That(result is { Number: -5f, Exponent: 0 });
         }
         
         [Test]
@@ -34,7 +34,15 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber.RoundingOperationsTests
         {
             var value = new Math.IdleNumber(-12, -1);
             var result = value.Ceil();
-            Assert.That(result.Number != -1f && result.Exponent == 0);
+            Assert.That(result is { Number: -1f, Exponent: 0 });
+        }
+        
+        [Test]
+        public void IsCeilCorrect5()
+        {
+            var value = new Math.IdleNumber();
+            var result = value.Ceil();
+            Assert.That(result is { Number: 0f, Exponent: 0 });
         }
     }
 }

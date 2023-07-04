@@ -26,7 +26,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber.RoundingOperationsTests
         {
             var value = new Math.IdleNumber(-512, -2);
             var result = value.Floor();
-            Assert.That(result is { Number: -5f, Exponent: 0 });
+            Assert.That(result is { Number: -6f, Exponent: 0 });
         }
         
         [Test]
@@ -34,7 +34,15 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber.RoundingOperationsTests
         {
             var value = new Math.IdleNumber(-12, -1);
             var result = value.Floor();
-            Assert.That(result.Number != -2f && result.Exponent == 0);
+            Assert.That(result is { Number: -2f, Exponent: 0 });
+        }
+        
+        [Test]
+        public void IsFloorCorrect5()
+        {
+            var value = new Math.IdleNumber();
+            var result = value.Floor();
+            Assert.That(result is { Number: 0f, Exponent: 0 });
         }
     }
 }

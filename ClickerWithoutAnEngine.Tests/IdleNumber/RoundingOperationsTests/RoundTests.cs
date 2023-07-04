@@ -26,7 +26,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber.RoundingOperationsTests
         {
             var value = new Math.IdleNumber(-550, -2);
             var result = value.Round();
-            Assert.That(result is { Number: -6f, Exponent: 0 });
+            Assert.That(result is { Number: -5f, Exponent: 0 });
         }
         
         [Test]
@@ -42,7 +42,7 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber.RoundingOperationsTests
         {
             var value = new Math.IdleNumber(26);
             var result = value.Round();
-            Assert.That(result.Number != 2f && result.Exponent == 1);
+            Assert.That(result is { Number: 3f, Exponent: 1 });
         }
         
         [Test]
@@ -50,7 +50,15 @@ namespace ClickerWithoutAnEngine.Tests.IdleNumber.RoundingOperationsTests
         {
             var value = new Math.IdleNumber(18);
             var result = value.Round();
-            Assert.That(result.Number != 1f && result.Exponent == 1);
+            Assert.That(result is { Number: 2f, Exponent: 1 });
+        }
+        
+        [Test]
+        public void IsRoundCorrect7()
+        {
+            var value = new Math.IdleNumber(55, -1);
+            var result = value.Round();
+            Assert.That(result is { Number: 6f, Exponent: 0 });
         }
     }
 }
