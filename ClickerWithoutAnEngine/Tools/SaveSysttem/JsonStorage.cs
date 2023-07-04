@@ -24,7 +24,7 @@ namespace ClickerWithoutAnEngine.Tools
                 throw new HasNotSaveException(nameof(TStoreValue), _pathName);
             
             var saveJson = File.ReadAllText(_pathName);
-            return JsonConvert.DeserializeObject<TStoreValue>(saveJson);
+            return JsonConvert.DeserializeObject<TStoreValue>(saveJson)!;
         }
 
         public void Save(TStoreValue value)

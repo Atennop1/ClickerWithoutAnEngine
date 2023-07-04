@@ -34,8 +34,9 @@ namespace ClickerWithoutAnEngine.Tools
 
             var serializer = new XmlSerializer(typeof(TStoreValue));
             var fileText = File.ReadAllText(_pathName);
+            
             using var stringReader = new StringReader(fileText);
-            return (TStoreValue)serializer.Deserialize(stringReader);
+            return (TStoreValue)serializer.Deserialize(stringReader)!;
         }
 
         public void Save(TStoreValue value)

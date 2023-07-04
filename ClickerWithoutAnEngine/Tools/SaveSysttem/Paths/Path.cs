@@ -2,7 +2,6 @@
 {
     public sealed class Path : IPath
     {
-        public string Name { get; }
         private readonly string _savesFolder = AppDomain.CurrentDomain.BaseDirectory + "Game-Saves";
 
         public Path(string name)
@@ -15,5 +14,7 @@
 
             Name = System.IO.Path.Combine(_savesFolder, name);
         }
+        
+        public string Name { get; }
     }
 }
