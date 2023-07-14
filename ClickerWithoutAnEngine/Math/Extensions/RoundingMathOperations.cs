@@ -2,10 +2,10 @@
 {
     public static class RoundingMathOperations
     {
-        public static IIdleNumber Floor(this IIdleNumber value)
+        public static IExponentialNumber Floor(this IExponentialNumber value)
         {
             if (-value.Exponent > Constants.UsingDigitsCount)
-                return new IdleNumber();
+                return new ExponentialNumber();
 
             var decimalPlaces = System.Math.Max(-value.Exponent, 0);
             var expandedNumber = value.Number;
@@ -18,13 +18,13 @@
             for (var i = 0; i < decimalPlaces; i++)
                 roundedNumber /= 10;
 
-            return new IdleNumber(roundedNumber, value.Exponent);
+            return new ExponentialNumber(roundedNumber, value.Exponent);
         }
 
-        public static IIdleNumber Ceil(this IIdleNumber value)
+        public static IExponentialNumber Ceil(this IExponentialNumber value)
         {
             if (-value.Exponent > Constants.UsingDigitsCount)
-                return new IdleNumber();
+                return new ExponentialNumber();
             
             var decimalPlaces = System.Math.Max(-value.Exponent, 0);
             var expandedNumber = value.Number;
@@ -37,10 +37,10 @@
             for (var i = 0; i < decimalPlaces; i++)
                 roundedNumber /= 10;
 
-            return new IdleNumber(roundedNumber, value.Exponent);
+            return new ExponentialNumber(roundedNumber, value.Exponent);
         }
 
-        public static IIdleNumber Round(this IIdleNumber value)
+        public static IExponentialNumber Round(this IExponentialNumber value)
         {
             var floor = value.Floor();
             var ceil = value.Ceil();

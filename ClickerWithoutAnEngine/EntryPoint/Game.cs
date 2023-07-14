@@ -1,4 +1,4 @@
-﻿namespace ClickerWithoutAnEngine
+﻿namespace ClickerWithoutAnEngine.EntryPoint
 {
     public sealed class Game
     {

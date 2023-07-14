@@ -4,7 +4,7 @@ namespace ClickerWithoutAnEngine.Math
 {
     public static class MathCasts
     {
-        public static int ToInt(this IIdleNumber value)
+        public static int ToInt(this IExponentialNumber value)
         {
             if (value.Less(int.MinValue))
                 throw new OverflowException("Value is less than System.int.MinValue.");
@@ -15,7 +15,7 @@ namespace ClickerWithoutAnEngine.Math
             return (int)(value.Number * 10.Pow(value.Exponent));
         }
 
-        public static float ToFloat(this IIdleNumber value)
+        public static float ToFloat(this IExponentialNumber value)
         {
             if (value.Less(float.MinValue))
                 throw new OverflowException("Value is less than System.uint.MinValue.");
@@ -26,31 +26,31 @@ namespace ClickerWithoutAnEngine.Math
             return (float)value.Number * 10.Pow(value.Exponent);
         }
         
-        public static IIdleNumber ToIdleNumber(this byte value) 
-            => new IdleNumber(value);
+        public static IExponentialNumber ToIdleNumber(this byte value) 
+            => new ExponentialNumber(value);
 
-        public static IIdleNumber ToIdleNumber(this sbyte value) 
-            => new IdleNumber(value);
+        public static IExponentialNumber ToIdleNumber(this sbyte value) 
+            => new ExponentialNumber(value);
 
-        public static IIdleNumber ToIdleNumber(this short value) 
-            => new IdleNumber(value);
+        public static IExponentialNumber ToIdleNumber(this short value) 
+            => new ExponentialNumber(value);
 
-        public static IIdleNumber ToIdleNumber(this ushort value) 
-            => new IdleNumber(value);
+        public static IExponentialNumber ToIdleNumber(this ushort value) 
+            => new ExponentialNumber(value);
 
-        public static IIdleNumber ToIdleNumber(this int value) 
-            => new IdleNumber(value);
+        public static IExponentialNumber ToIdleNumber(this int value) 
+            => new ExponentialNumber(value);
         
-        public static IIdleNumber ToIdleNumber(this uint value) 
-            => new IdleNumber(value);
+        public static IExponentialNumber ToIdleNumber(this uint value) 
+            => new ExponentialNumber(value);
 
-        public static IIdleNumber ToIdleNumber(this long value) 
-            => new IdleNumber(value);
+        public static IExponentialNumber ToIdleNumber(this long value) 
+            => new ExponentialNumber(value);
 
-        public static IIdleNumber ToIdleNumber(this ulong value) 
-            => new IdleNumber(value);
+        public static IExponentialNumber ToIdleNumber(this ulong value) 
+            => new ExponentialNumber(value);
         
-        public static IIdleNumber ToIdleNumber(this float value) 
-            => new IdleNumber(value);
+        public static IExponentialNumber ToIdleNumber(this float value) 
+            => new ExponentialNumber(value);
     }
 }
