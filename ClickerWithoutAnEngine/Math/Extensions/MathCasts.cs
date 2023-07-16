@@ -15,13 +15,13 @@ namespace ClickerWithoutAnEngine.Math
             return (int)(value.Number * 10.Pow(value.Exponent));
         }
 
-        public static float ToFloat(this IExponentialNumber value)
+        public static double ToDouble(this IExponentialNumber value)
         {
-            if (value.Less(float.MinValue))
-                throw new OverflowException("Value is less than System.uint.MinValue.");
+            if (value.Less(double.MinValue))
+                throw new OverflowException("Value is less than System.double.MinValue.");
             
-            if (value.Greater(float.MaxValue))
-                throw new OverflowException("Value is greater than System.uint.MaxValue.");
+            if (value.Greater(double.MaxValue))
+                throw new OverflowException("Value is greater than System.double.MaxValue.");
 
             return (float)value.Number * 10.Pow(value.Exponent);
         }
@@ -51,6 +51,9 @@ namespace ClickerWithoutAnEngine.Math
             => new ExponentialNumber(value);
         
         public static IExponentialNumber ToIdleNumber(this float value) 
+            => new ExponentialNumber(value);
+        
+        public static IExponentialNumber ToIdleNumber(this double value) 
             => new ExponentialNumber(value);
     }
 }

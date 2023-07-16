@@ -7,7 +7,7 @@ namespace ClickerWithoutAnEngine.Math
         public static IExponentialNumber Add(this IExponentialNumber exponentialNumber, int number)
             => exponentialNumber.Add(new ExponentialNumber(number));
 
-        public static IExponentialNumber Add(this IExponentialNumber exponentialNumber, float number)
+        public static IExponentialNumber Add(this IExponentialNumber exponentialNumber, double number)
             => exponentialNumber.Add(new ExponentialNumber(number));
 
         public static IExponentialNumber Add(this IExponentialNumber first, IExponentialNumber second)
@@ -30,7 +30,7 @@ namespace ClickerWithoutAnEngine.Math
         public static IExponentialNumber Subtract(this IExponentialNumber exponentialNumber, int number)
             => exponentialNumber.Subtract(new ExponentialNumber(number));
 
-        public static IExponentialNumber Subtract(this IExponentialNumber exponentialNumber, float number)
+        public static IExponentialNumber Subtract(this IExponentialNumber exponentialNumber, double number)
             => exponentialNumber.Subtract(new ExponentialNumber(number));
 
         public static IExponentialNumber Subtract(this IExponentialNumber first, IExponentialNumber second)
@@ -54,7 +54,7 @@ namespace ClickerWithoutAnEngine.Math
         public static IExponentialNumber Multiply(this IExponentialNumber exponentialNumber, int number)
             => exponentialNumber.Multiply(new ExponentialNumber(number));
 
-        public static IExponentialNumber Multiply(this IExponentialNumber exponentialNumber, float number)
+        public static IExponentialNumber Multiply(this IExponentialNumber exponentialNumber, double number)
             => exponentialNumber.Multiply(new ExponentialNumber(number));
         
         public static IExponentialNumber Multiply(this IExponentialNumber first, IExponentialNumber second) 
@@ -64,7 +64,7 @@ namespace ClickerWithoutAnEngine.Math
         public static IExponentialNumber Divide(this IExponentialNumber exponentialNumber, int number)
             => exponentialNumber.Divide(new ExponentialNumber(number));
         
-        public static IExponentialNumber Divide(this IExponentialNumber exponentialNumber, float number)
+        public static IExponentialNumber Divide(this IExponentialNumber exponentialNumber, double number)
             => exponentialNumber.Divide(new ExponentialNumber(number));
         
         public static IExponentialNumber Divide(this IExponentialNumber first, IExponentialNumber second)
@@ -79,7 +79,7 @@ namespace ClickerWithoutAnEngine.Math
         public static IExponentialNumber Remainder(this IExponentialNumber first, int second)
             => first.Remainder(new ExponentialNumber(second));
         
-        public static IExponentialNumber Remainder(this IExponentialNumber first, float second)
+        public static IExponentialNumber Remainder(this IExponentialNumber first, double second)
             => first.Remainder(new ExponentialNumber(second));
 
         public static IExponentialNumber Remainder(this IExponentialNumber first, IExponentialNumber second)

@@ -5,7 +5,7 @@
         public static bool IsEquals(this IExponentialNumber left, int right)
             => left.IsEquals(new ExponentialNumber(right));
 
-        public static bool IsEquals(this IExponentialNumber left, float right)
+        public static bool IsEquals(this IExponentialNumber left, double right)
             => left.IsEquals(new ExponentialNumber(right));
 
         public static bool IsEquals(this IExponentialNumber left, IExponentialNumber right)
@@ -16,7 +16,7 @@
         public static bool Less(this IExponentialNumber left, int right)
             => left.Less(new ExponentialNumber(right));
 
-        public static bool Less(this IExponentialNumber left, float right)
+        public static bool Less(this IExponentialNumber left, double right)
             => left.Less(new ExponentialNumber(right));
 
         public static bool Less(this IExponentialNumber left, IExponentialNumber right)
@@ -35,7 +35,7 @@
         public static bool LessOrEquals(this IExponentialNumber left, int right)
             => left.LessOrEquals(new ExponentialNumber(right));
 
-        public static bool LessOrEquals(this IExponentialNumber left, float right)
+        public static bool LessOrEquals(this IExponentialNumber left, double right)
             => left.LessOrEquals(new ExponentialNumber(right));
 
         public static bool LessOrEquals(this IExponentialNumber left, IExponentialNumber right)
@@ -46,7 +46,7 @@
         public static bool Greater(this IExponentialNumber left, int right)
             => left.Greater(new ExponentialNumber(right));
 
-        public static bool Greater(this IExponentialNumber left, float right)
+        public static bool Greater(this IExponentialNumber left, double right)
             => left.Greater(new ExponentialNumber(right));
 
         public static bool Greater(this IExponentialNumber left, IExponentialNumber right)
@@ -65,7 +65,7 @@
         public static bool GreaterOrEquals(this IExponentialNumber left, int right)
             => left.GreaterOrEquals(new ExponentialNumber(right));
 
-        public static bool GreaterOrEquals(this IExponentialNumber left, float right)
+        public static bool GreaterOrEquals(this IExponentialNumber left, double right)
             => left.GreaterOrEquals(new ExponentialNumber(right));
 
         public static bool GreaterOrEquals(this IExponentialNumber left, IExponentialNumber right)
