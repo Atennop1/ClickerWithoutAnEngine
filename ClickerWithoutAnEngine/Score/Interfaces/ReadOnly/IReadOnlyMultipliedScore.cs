@@ -4,7 +4,7 @@
     {
         float MultiplicationCoefficient { get; }
         
-        bool CanIncrease(float value);
-        bool CanDecrease(float value);
+        bool CanIncreaseCoefficient(float value);
+        bool CanDecreaseCoefficient(float value);
     }
 }

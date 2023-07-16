@@ -15,23 +15,23 @@ namespace ClickerWithoutAnEngine.Score
 
         public float MultiplicationCoefficient { get; private set;  }
 
-        public bool CanIncrease(float value)
+        public bool CanIncreaseCoefficient(float value)
             => value > 0;
 
-        public void Increase(float value)
+        public void IncreaseCoefficient(float value)
         {
-            if (!CanIncrease(value))
+            if (!CanIncreaseCoefficient(value))
                 throw new InvalidOperationException($"Can't increase coefficient by {value}");
 
             MultiplicationCoefficient += value;
         }
 
-        public bool CanDecrease(float value)
+        public bool CanDecreaseCoefficient(float value)
             => value > 0 && MultiplicationCoefficient - value > 0;
 
-        public void Decrease(float value)
+        public void DecreaseCoefficient(float value)
         {
-            if (!CanDecrease(value))
+            if (!CanDecreaseCoefficient(value))
                 throw new InvalidOperationException($"Can't decrease coefficient by {value}");
 
             MultiplicationCoefficient -= value;
@@ -41,16 +41,16 @@ namespace ClickerWithoutAnEngine.Score
         public IExponentialNumber Value 
             => _scoreImplementation.Value;
         
-        bool IReadOnlyScore.CanIncrease(IExponentialNumber number) 
+        public bool CanIncrease(IExponentialNumber number) 
             => _scoreImplementation.CanIncrease(number);
         
-        void IScore.Increase(IExponentialNumber number) 
+        public void Increase(IExponentialNumber number) 
             => _scoreImplementation.Increase(number.Multiply(MultiplicationCoefficient));
 
-        bool IReadOnlyScore.CanDecrease(IExponentialNumber number) 
+        public bool CanDecrease(IExponentialNumber number) 
             => _scoreImplementation.CanDecrease(number);
 
-        void IScore.Decrease(IExponentialNumber number)
+        public void Decrease(IExponentialNumber number)
             => _scoreImplementation.Decrease(number.Multiply(MultiplicationCoefficient));
     }
 }

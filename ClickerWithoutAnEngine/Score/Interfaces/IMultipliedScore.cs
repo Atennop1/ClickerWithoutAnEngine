@@ -1,8 +1,8 @@
 ﻿namespace ClickerWithoutAnEngine.Score
 {
-    public interface IMultipliedScore : IReadOnlyMultipliedScore, IScore
+    public interface IMultipliedScore : IScore, IReadOnlyMultipliedScore
     {
-        void Increase(float value);
-        void Decrease(float value);
+        void IncreaseCoefficient(float value);
+        void DecreaseCoefficient(float value);
     }
 }
