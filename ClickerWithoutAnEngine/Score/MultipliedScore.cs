@@ -5,11 +5,11 @@ namespace ClickerWithoutAnEngine.Score
 {
     public sealed class MultipliedScore : IMultipliedScore
     {
-        private readonly IScore _scoreImplementation;
+        private readonly IScore _score;
 
-        public MultipliedScore(IScore scoreImplementation, float multiplicationCoefficient = 1f)
+        public MultipliedScore(IScore score, float multiplicationCoefficient = 1f)
         {
-            _scoreImplementation = scoreImplementation ?? throw new ArgumentNullException(nameof(scoreImplementation));
+            _score = score ?? throw new ArgumentNullException(nameof(score));
             MultiplicationCoefficient = multiplicationCoefficient.ThrowExceptionIfLessOrEqualsZero();
         }
 
@@ -39,18 +39,18 @@ namespace ClickerWithoutAnEngine.Score
 
 
         public IExponentialNumber Value 
-            => _scoreImplementation.Value;
+            => _score.Value;
         
         public bool CanIncrease(IExponentialNumber number) 
-            => _scoreImplementation.CanIncrease(number);
+            => _score.CanIncrease(number);
         
         public void Increase(IExponentialNumber number) 
-            => _scoreImplementation.Increase(number.Multiply(MultiplicationCoefficient));
+            => _score.Increase(number.Multiply(MultiplicationCoefficient));
 
         public bool CanDecrease(IExponentialNumber number) 
-            => _scoreImplementation.CanDecrease(number);
+            => _score.CanDecrease(number);
 
         public void Decrease(IExponentialNumber number)
-            => _scoreImplementation.Decrease(number.Multiply(MultiplicationCoefficient));
+            => _score.Decrease(number.Multiply(MultiplicationCoefficient));
     }
 }
