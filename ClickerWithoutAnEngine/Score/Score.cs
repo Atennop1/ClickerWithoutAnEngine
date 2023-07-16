@@ -10,7 +10,7 @@ namespace ClickerWithoutAnEngine.Score
         public Score()
             => Value = new ExponentialNumber();
         
-        public IExponentialNumber Value { get; }
+        public IExponentialNumber Value { get; private set; }
 
         public bool CanIncrease(IExponentialNumber number)
             =>  number != null && number.Greater(0);
@@ -20,7 +20,7 @@ namespace ClickerWithoutAnEngine.Score
             if (!CanIncrease(number))
                 throw new InvalidOperationException($"Can't increase number by value {number}");
 
-            Value.Add(number);
+            Value = Value.Add(number);
         }
 
         public bool CanDecrease(IExponentialNumber number)
@@ -31,7 +31,7 @@ namespace ClickerWithoutAnEngine.Score
             if (!CanDecrease(number))
                 throw new InvalidOperationException($"Can't decrease number by value {number}");
 
-            Value.Subtract(number);
+            Value = Value.Subtract(number);
         }
     }
 }
