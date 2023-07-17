@@ -8,12 +8,12 @@ namespace ClickerWithoutAnEngine.EntryPoint
     {
         public void Play()
         {
-            using var panel = new Bitmap(200, 200);
-            using var graphics = Graphics.FromImage(panel);
+            var panel = new Bitmap(200, 200);
+            var graphics = Graphics.FromImage(panel);
 
             var font = new Font("Arial", 30);
             var brush = new SolidBrush(Color.Black);
-            graphics.DrawString("Hello, World!", font, brush, 0, 0);
+            graphics.DrawString("Hello, World!", font, brush, 100, 100);
 
             var loopObjects = new GameLoopObjects(new List<IGameLoopObject>
             {

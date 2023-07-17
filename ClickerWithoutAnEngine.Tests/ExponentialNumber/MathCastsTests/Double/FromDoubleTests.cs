@@ -9,7 +9,7 @@ namespace ClickerWithoutAnEngine.Tests.ExponentialNumber.MathCastsTests.Double
         public void FromDoubleCorrect1()
         {
             double value = 10;
-            var result = value.ToIdleNumber();
+            var result = value.ToExponentialNumber();
             Assert.That(result is { Number: 1, Exponent: 1 });
         }
         
@@ -17,7 +17,7 @@ namespace ClickerWithoutAnEngine.Tests.ExponentialNumber.MathCastsTests.Double
         public void FromDoubleCorrect2()
         {
             double value = -10;
-            var result = value.ToIdleNumber();
+            var result = value.ToExponentialNumber();
             Assert.That(result is { Number: -1, Exponent: 1 });
         }
 
@@ -25,7 +25,7 @@ namespace ClickerWithoutAnEngine.Tests.ExponentialNumber.MathCastsTests.Double
         public void FromDoubleCorrect3()
         {
             double value = 0;
-            var result = value.ToIdleNumber();
+            var result = value.ToExponentialNumber();
             Assert.That(result is { Number: 0, Exponent: 0 });
         }
     }

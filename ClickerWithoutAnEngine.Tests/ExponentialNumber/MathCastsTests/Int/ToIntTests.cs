@@ -8,36 +8,36 @@ namespace ClickerWithoutAnEngine.Tests.ExponentialNumber.MathCastsTests.Int
         [Test]
         public void ToIntCorrect1()
         {
-            var idleNumber = new Math.ExponentialNumber(1, 20);
-            Assert.Throws<OverflowException>(() => idleNumber.ToInt());
+            var exponentialNumber = new Math.ExponentialNumber(1, 20);
+            Assert.Throws<OverflowException>(() => exponentialNumber.ToInt());
         }
         
         [Test]
         public void ToIntCorrect2()
         {
-            var idleNumber = new Math.ExponentialNumber(-1, 20);
-            Assert.Throws<OverflowException>(() => idleNumber.ToInt());
+            var exponentialNumber = new Math.ExponentialNumber(-1, 20);
+            Assert.Throws<OverflowException>(() => exponentialNumber.ToInt());
         }
         
         [Test]
         public void ToIntCorrect3()
         {
-            var idleNumber = new Math.ExponentialNumber(100);
-            Assert.That(idleNumber.ToInt() == 100);
+            var exponentialNumber = new Math.ExponentialNumber(100);
+            Assert.That(exponentialNumber.ToInt() == 100);
         }
         
         [Test]
         public void ToIntCorrect4()
         {
-            var idleNumber = new Math.ExponentialNumber(-100);
-            Assert.That(idleNumber.ToInt() == -100);
+            var exponentialNumber = new Math.ExponentialNumber(-100);
+            Assert.That(exponentialNumber.ToInt() == -100);
         }
         
         [Test]
         public void ToIntCorrect5()
         {
-            var idleNumber = new Math.ExponentialNumber();
-            Assert.That(idleNumber.ToInt() == 0);
+            var exponentialNumber = new Math.ExponentialNumber();
+            Assert.That(exponentialNumber.ToInt() == 0);
         }
     }
 }

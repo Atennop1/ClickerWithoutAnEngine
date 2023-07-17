@@ -26,34 +26,34 @@ namespace ClickerWithoutAnEngine.Math
             return (float)value.Number * 10.Pow(value.Exponent);
         }
         
-        public static IExponentialNumber ToIdleNumber(this byte value) 
+        public static IExponentialNumber ToExponentialNumber(this byte value) 
             => new ExponentialNumber(value);
 
-        public static IExponentialNumber ToIdleNumber(this sbyte value) 
+        public static IExponentialNumber ToExponentialNumber(this sbyte value) 
             => new ExponentialNumber(value);
 
-        public static IExponentialNumber ToIdleNumber(this short value) 
+        public static IExponentialNumber ToExponentialNumber(this short value) 
             => new ExponentialNumber(value);
 
-        public static IExponentialNumber ToIdleNumber(this ushort value) 
+        public static IExponentialNumber ToExponentialNumber(this ushort value) 
             => new ExponentialNumber(value);
 
-        public static IExponentialNumber ToIdleNumber(this int value) 
+        public static IExponentialNumber ToExponentialNumber(this int value) 
             => new ExponentialNumber(value);
         
-        public static IExponentialNumber ToIdleNumber(this uint value) 
+        public static IExponentialNumber ToExponentialNumber(this uint value) 
             => new ExponentialNumber(value);
 
-        public static IExponentialNumber ToIdleNumber(this long value) 
+        public static IExponentialNumber ToExponentialNumber(this long value) 
             => new ExponentialNumber(value);
 
-        public static IExponentialNumber ToIdleNumber(this ulong value) 
+        public static IExponentialNumber ToExponentialNumber(this ulong value) 
             => new ExponentialNumber(value);
         
-        public static IExponentialNumber ToIdleNumber(this float value) 
+        public static IExponentialNumber ToExponentialNumber(this float value) 
             => new ExponentialNumber(value);
         
-        public static IExponentialNumber ToIdleNumber(this double value) 
+        public static IExponentialNumber ToExponentialNumber(this double value) 
             => new ExponentialNumber(value);
     }
 }

@@ -9,7 +9,7 @@ namespace ClickerWithoutAnEngine.Tests.ExponentialNumber.MathCastsTests.Long
         public void FromLongCorrect1()
         {
             long value = 10;
-            var result = value.ToIdleNumber();
+            var result = value.ToExponentialNumber();
             Assert.That(result is { Number: 1, Exponent: 1 });
         }
         
@@ -17,7 +17,7 @@ namespace ClickerWithoutAnEngine.Tests.ExponentialNumber.MathCastsTests.Long
         public void FromLongCorrect2()
         {
             long value = -10;
-            var result = value.ToIdleNumber();
+            var result = value.ToExponentialNumber();
             Assert.That(result is { Number: -1, Exponent: 1 });
         }
 
@@ -25,7 +25,7 @@ namespace ClickerWithoutAnEngine.Tests.ExponentialNumber.MathCastsTests.Long
         public void FromLongCorrect3()
         {
             long value = 0;
-            var result = value.ToIdleNumber();
+            var result = value.ToExponentialNumber();
             Assert.That(result is { Number: 0, Exponent: 0 });
         }
     }

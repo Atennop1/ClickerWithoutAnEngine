@@ -26,7 +26,7 @@ namespace ClickerWithoutAnEngine.Tests.ExponentialNumber
         }
 
         [Test]
-        public void IsCreationByIdleNumberCorrect()
+        public void IsCreationByExponentialNumberCorrect()
         {
             var first = new Math.ExponentialNumber(100, 5);
             var second = new Math.ExponentialNumber(first);
