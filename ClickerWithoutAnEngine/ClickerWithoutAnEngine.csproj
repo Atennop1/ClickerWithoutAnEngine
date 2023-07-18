@@ -13,7 +13,4 @@
       <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
     </ItemGroup>
 
-    <ItemGroup>
-    </ItemGroup>
-
 </Project>
