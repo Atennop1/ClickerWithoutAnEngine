@@ -4,13 +4,22 @@ namespace ClickerWithoutAnEngine.UI
 {
     public sealed class Transform : ITransform
     {
-        public Transform(Vector2 position = new(), Quaternion rotation = new())
+        public Transform()
+            : this(Vector2.Zero, Quaternion.Identity) { }
+        
+        public Transform(Vector2 position)
+            : this(position, Quaternion.Identity) { }
+        
+        public Transform(Vector3 position)
+            : this(new Vector2(position.X, position.Y), Quaternion.Identity) { }
+        
+        public Transform(Vector2 position, Quaternion rotation)
         {
             Position = position;
             Rotation = rotation;
         }
         
-        public Transform(Vector3 position, Quaternion rotation = new())
+        public Transform(Vector3 position, Quaternion rotation)
         {
             Position = new Vector2(position.X, position.Y);
             Rotation = rotation;
@@ -38,7 +47,6 @@ namespace ClickerWithoutAnEngine.UI
             if (!CanRotate(rotation))
                 throw new InvalidOperationException("Transform is already in that rotation");
 
-            
             Rotation = rotation;
         }
     }
