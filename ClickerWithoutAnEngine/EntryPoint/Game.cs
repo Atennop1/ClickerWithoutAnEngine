@@ -1,5 +1,4 @@
 ﻿using ClickerWithoutAnEngine.GameLoop;
-using ClickerWithoutAnEngine.GameLoop.Object;
 using System.Drawing;
 
 namespace ClickerWithoutAnEngine.EntryPoint

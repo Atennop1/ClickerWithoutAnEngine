@@ -1,4 +1,4 @@
-﻿namespace ClickerWithoutAnEngine.GameLoop.Object
+﻿namespace ClickerWithoutAnEngine.GameLoop
 {
     public sealed class GameLoopObjects : IGameLoopObject
     {
