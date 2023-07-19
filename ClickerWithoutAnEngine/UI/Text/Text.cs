@@ -34,6 +34,9 @@ namespace ClickerWithoutAnEngine.UI
 
         public void DisplayLine(string line)
         {
+            if (!IsEnabled)
+                throw new InvalidOperationException("Can't display line in disabled text");
+            
             Line = line ?? throw new ArgumentNullException(nameof(line));
             DrawLine(line);
         }

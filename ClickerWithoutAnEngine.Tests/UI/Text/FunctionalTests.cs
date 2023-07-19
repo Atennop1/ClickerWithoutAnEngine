@@ -26,6 +26,16 @@ namespace ClickerWithoutAnEngine.Tests.UI.Text
             _text.DisplayLine("Hello!");
             Assert.That(_text.Line == "Hello!");
         }
+        
+        [Test]
+        public void IsDisplayCorrect3()
+        {
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                _text.Disable();
+                _text.DisplayLine("Hello!");
+            });
+        }
 
         [Test]
         public void IsChangeColorCorrect()
