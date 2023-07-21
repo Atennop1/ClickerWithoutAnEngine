@@ -1,7 +1,6 @@
-﻿using ClickerWithoutAnEngine.GameLoop;
-using System.Drawing;
-using System.Numerics;
-using ClickerWithoutAnEngine.UI;
+﻿using System.Drawing;
+using ClickerWithoutAnEngine.GameLoop;
+using ClickerWithoutAnEngine.Tools;
 
 namespace ClickerWithoutAnEngine.EntryPoint
 {
@@ -9,16 +8,10 @@ namespace ClickerWithoutAnEngine.EntryPoint
     {
         public void Play()
         {
-            var panel = new Bitmap(200, 200);
-            var graphics = Graphics.FromImage(panel);
-            var font = new Font("Arial", 30);
+            var bitmap = new Bitmap("C:\\Unity\\LearningStuff\\Assets\\Sprites\\Anatoliy.jpg");
+            bitmap.ChangeColor(Color.FromArgb(105, 148, 105));
+            bitmap.Save("C:\\Users\\User\\image.png");
             
-            var textTransform = new Transform(new Vector2(100, 100));
-            var interfaceElement = new InterfaceElement(textTransform);
-            var text = new Text(interfaceElement, graphics, font);
-            
-            text.DisplayLine("Hello, World!");
-
             var loopObjects = new GameLoopObjects(new List<IGameLoopObject>
             {
 

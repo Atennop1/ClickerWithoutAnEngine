@@ -35,7 +35,7 @@ namespace ClickerWithoutAnEngine.UI
         public void ChangeColor(Color color)
         {
             Color = color;
-            _bitmap.SwitchColor(Color);
+            _bitmap.ChangeColor(Color);
             Draw();
         }
         
