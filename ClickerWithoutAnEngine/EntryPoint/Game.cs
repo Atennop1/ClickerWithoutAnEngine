@@ -6,19 +6,22 @@ namespace ClickerWithoutAnEngine.EntryPoint
     {
         public void Play()
         {
-            OpenGL.Platform.Window.CreateWindow("CookieClicker", 1280, 720);
-
-            while (OpenGL.Platform.Window.Open) 
-                OpenGL.Platform.Window.HandleEvents();
-
-            var loopObjects = new GameLoopObjects(new List<IGameLoopObject>
+            var gameLoopObjects = new GameLoopObjects(new List<IGameLoopObject>
             {
+                
+            });
 
+            var renderingLoopObjects = new GameLoopObjects(new List<IGameLoopObject>
+            {
+                
             });
 
             var gamePause = new GamePause();
-            var gameLoop = new GameLoop.GameLoop(loopObjects, gamePause);
-            gameLoop.Activate();
+            var gameLoop = new GameLoop.GameLoop(gameLoopObjects, gamePause);
+            var renderingLoop = new RenderingLoop(renderingLoopObjects);
+            
+            var loops = new GameLoops(new List<IGameLoop> { gameLoop, renderingLoop });
+            loops.Activate();
         }
     }
 }

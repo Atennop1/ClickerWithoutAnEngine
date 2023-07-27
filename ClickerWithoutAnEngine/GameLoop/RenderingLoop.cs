@@ -2,30 +2,27 @@
 
 namespace ClickerWithoutAnEngine.GameLoop
 {
-    public sealed class GameLoop : IGameLoop
+    public sealed class RenderingLoop : IGameLoop
     {
         private readonly IGameLoopObject _gameLoopObject;
-        private readonly IGamePause _gamePause;
         private readonly Stopwatch _stopwatch = new();
 
-        public GameLoop(IGameLoopObject gameLoopObject, IGamePause gamePause)
-        {
-            _gameLoopObject = gameLoopObject ?? throw new ArgumentNullException(nameof(gameLoopObject));
-            _gamePause = gamePause ?? throw new ArgumentNullException(nameof(gamePause));
-        }
+        public RenderingLoop(IGameLoopObject gameLoopObject) 
+            => _gameLoopObject = gameLoopObject ?? throw new ArgumentNullException(nameof(gameLoopObject));
 
         public void Activate()
         {
             _stopwatch.Start();
             var lastUpdateTime = _stopwatch.Elapsed;
             
+            OpenGL.Platform.Window.CreateWindow("CookieClicker", 1920, 1280);
+            
             var updatingThread = new Thread(() =>
             {
-                while (true)
+                while (OpenGL.Platform.Window.Open)
                 {
-                    if (_gamePause.IsActive)
-                        continue;
-
+                    OpenGL.Platform.Window.HandleEvents();
+                    
                     var deltaTime = _stopwatch.Elapsed - lastUpdateTime;
                     lastUpdateTime += deltaTime;
 
