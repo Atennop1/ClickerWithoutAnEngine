@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using ClickerWithoutAnEngine.GameLoop;
-using ClickerWithoutAnEngine.Tools;
+﻿using ClickerWithoutAnEngine.GameLoop;
 
 namespace ClickerWithoutAnEngine.EntryPoint
 {
@@ -8,10 +6,11 @@ namespace ClickerWithoutAnEngine.EntryPoint
     {
         public void Play()
         {
-            var bitmap = new Bitmap("C:\\Unity\\LearningStuff\\Assets\\Sprites\\Anatoliy.jpg");
-            bitmap.ChangeColor(Color.FromArgb(105, 148, 105));
-            bitmap.Save("C:\\Users\\User\\image.png");
-            
+            OpenGL.Platform.Window.CreateWindow("CookieClicker", 1280, 720);
+
+            while (OpenGL.Platform.Window.Open) 
+                OpenGL.Platform.Window.HandleEvents();
+
             var loopObjects = new GameLoopObjects(new List<IGameLoopObject>
             {
 

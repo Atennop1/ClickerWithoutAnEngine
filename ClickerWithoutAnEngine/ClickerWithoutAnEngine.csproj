@@ -8,9 +8,33 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-      <PackageReference Include="System.Drawing.Common" Version="8.0.0-preview.5.23280.5" />
-      <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+        <PackageReference Include="Giawa.OpenGL.Platform" Version="0.1.5" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="System.Drawing.Common" Version="8.0.0-preview.5.23280.5" />
+        <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="SDL2-CS">
+        <HintPath>DLLs\SDL2-CS.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="bin\Debug\net6.0\SDL2.dll" />
+      <None Include="obj\Debug\net6.0\SDL2.dll" />
+      <None Include="obj\Release\net6.0\SDL2.dll" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="bin\Debug\net6.0\OpenGL.dll" />
+      <Content Include="bin\Debug\net6.0\SDL2.dll" />
+      <Content Include="bin\Release\net6.0\OpenGL.dll" />
+      <Content Include="bin\Release\net6.0\SDL2.dll" />
+      <Content Include="obj\Debug\net6.0\OpenGL.dll" />
+      <Content Include="obj\Debug\net6.0\SDL2.dll" />
+      <Content Include="obj\Release\net6.0\OpenGL.dll" />
+      <Content Include="obj\Release\net6.0\SDL2.dll" />
     </ItemGroup>
 
 </Project>

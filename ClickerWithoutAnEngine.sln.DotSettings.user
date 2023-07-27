@@ -1,5 +1,18 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CUser_005CDownloads_005Cadvapi32_005Cadvapi32_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CUser_005CDownloads_005COpenGL_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CUser_005CDownloads_005CSDL2_002DCS_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CUser_005CDownloads_005CSDL2_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CUser_005CDownloads_005CSDL2_005CSDL2_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CUser_005CDownloads_005Csystem_002Edrawing_005CSystem_002EDrawing_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CUser_005Csource_005Crepos_005CClickerWithoutAnEngine_005CClickerWithoutAnEngine_005CDLLs_005CSDL2_002DCS_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CUser_005Csource_005Crepos_005CClickerWithoutAnEngine_005CClickerWithoutAnEngine_005CDLLs_005CSDL2_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CUser_005Csource_005Crepos_005CClickerWithoutAnEngine_005CClickerWithoutAnEngine_005CSDL2_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\User\source\repos\ClickerWithoutAnEngine\ClickerWithoutAnEngine\DLLs\SDL2-CS.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\User\source\repos\ClickerWithoutAnEngine\ClickerWithoutAnEngine\DLLs\SDL2.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\User\source\repos\ClickerWithoutAnEngine\ClickerWithoutAnEngine\bin\Debug\net6.0\OpenGL.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
 	
 	
 	
