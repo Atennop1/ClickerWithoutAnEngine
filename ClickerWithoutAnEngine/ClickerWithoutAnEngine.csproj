@@ -21,20 +21,36 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Include="bin\Debug\net6.0\fonts\Font24px.fnt" />
       <None Include="bin\Debug\net6.0\SDL2.dll" />
+      <None Include="bin\Release\net6.0\Fonts\Font24px.fnt" />
+      <None Include="obj\Debug\Fonts\Font24px.fnt" />
+      <None Include="obj\Debug\net6.0\Fonts\Font24px.fnt" />
+      <None Include="obj\Debug\net6.0\fonts\Font24px.fnt" />
       <None Include="obj\Debug\net6.0\SDL2.dll" />
+      <None Include="obj\Release\Fonts\Font24px.fnt" />
+      <None Include="obj\Release\net6.0\Fonts\Font24px.fnt" />
       <None Include="obj\Release\net6.0\SDL2.dll" />
     </ItemGroup>
 
     <ItemGroup>
+      <Content Include="bin\Debug\net6.0\fonts\Font24px.png" />
       <Content Include="bin\Debug\net6.0\OpenGL.dll" />
       <Content Include="bin\Debug\net6.0\SDL2.dll" />
+      <Content Include="bin\Release\net6.0\Fonts\Font24px.png" />
       <Content Include="bin\Release\net6.0\OpenGL.dll" />
       <Content Include="bin\Release\net6.0\SDL2.dll" />
+      <Content Include="obj\Debug\net6.0\Fonts\Font24px.png" />
+      <Content Include="obj\Debug\net6.0\fonts\Font24px.png" />
       <Content Include="obj\Debug\net6.0\OpenGL.dll" />
       <Content Include="obj\Debug\net6.0\SDL2.dll" />
+      <Content Include="obj\Release\net6.0\Fonts\Font24px.png" />
       <Content Include="obj\Release\net6.0\OpenGL.dll" />
       <Content Include="obj\Release\net6.0\SDL2.dll" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="UI\Model\" />
     </ItemGroup>
 
 </Project>

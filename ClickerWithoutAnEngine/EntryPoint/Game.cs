@@ -1,4 +1,6 @@
 ﻿using ClickerWithoutAnEngine.GameLoop;
+using ClickerWithoutAnEngine.UI.OpenGL;
+using OpenGL.Platform;
 
 namespace ClickerWithoutAnEngine.EntryPoint
 {
@@ -6,6 +8,13 @@ namespace ClickerWithoutAnEngine.EntryPoint
     {
         public void Play()
         {
+            UserInterface.InitUI(Window.Width, Window.Height);
+            
+            var welcome = new Text(Shaders.FontShader, new BMFont("C:/Users/User/Downloads/test.fnt"), "Hello world!", BMFont.Justification.Center);
+            welcome.RelativeTo = Corner.Center;
+            
+            UserInterface.AddElement(welcome);
+            
             var gameLoopObjects = new GameLoopObjects(new List<IGameLoopObject>
             {
                 

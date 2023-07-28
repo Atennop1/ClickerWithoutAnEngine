@@ -15,7 +15,7 @@ namespace ClickerWithoutAnEngine.GameLoop
             _stopwatch.Start();
             var lastUpdateTime = _stopwatch.Elapsed;
             
-            OpenGL.Platform.Window.CreateWindow("CookieClicker", 1920, 1280);
+            OpenGL.Platform.Window.CreateWindow("CookieClicker", 1280, 720);
             
             var updatingThread = new Thread(() =>
             {
