@@ -1,2 +1,2 @@
 # ClickerWithoutAnEngine
-My future clicker game without an engine 
+This project was planned as my practice in OOP. At first everything went well, I implemented the systems and thought through the structure of the program, but a problem arose with the graphics: the Windows rendering tools in C# were not only primitive, but also non-working in my case. I wanted to try to make graphics using OpenGL, but I didn’t find good and working libraries for this that would allow me to do everything more or less OOP. Eventually, after switching to C++, I started developing [another game without an engine](https://github.com/Atennop1/ArkanoidWithoutAnEngine)
